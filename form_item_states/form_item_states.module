@@ -1,9 +1,16 @@
 <?php
 
+/*
+ * Modules that provide this in the UI:
+ * https://www.drupal.org/project/conditional_fields
+ * https://www.drupal.org/project/field_conditional_state
+ */
+
+
 /**
  * Implements hook_form_alter().
  */
-function simple_states_forms_form_alter(&$form, &$form_state, $form_id) {
+function form_item_states_form_alter(&$form, &$form_state, $form_id) {
 
   switch ($form_id) {
     case 'basic_page_node_form':
