@@ -1,0 +1,3 @@
+name = Simple File Formatter
+description = "Add a classes and file size to File fields."
+core = 7.x

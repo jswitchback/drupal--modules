@@ -1,0 +1,9 @@
+name = Dummy pages
+description = Removes nodes of a certain content types from Drupal search results & adds a robots meta tag to prevent search engine from indexing.
+package = Search
+core = 7.x
+
+version = "7.x-1.0"
+core = "7.x"
+project = "dummy_pages"
+

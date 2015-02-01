@@ -1,0 +1,19 @@
+/* Module classes */
+
+.image-popup {
+	cursor: -moz-zoom-in;
+	cursor: -webkit-zoom-in;
+	cursor: zoom-in;
+}
+
+/* Magnific Popup Classes */
+
+.mfp-image-holder .mfp-content {
+	padding: 36px 0 0 0;
+	background-color: transparent;
+	max-width: 980px;
+}
+
+.mfp-image-holder .mfp-img {
+	padding: 0;
+}

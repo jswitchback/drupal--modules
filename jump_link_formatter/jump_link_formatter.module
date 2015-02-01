@@ -1,0 +1,128 @@
+<?php 
+
+/**
+* @file
+* Adds a jump link formatter for Link fields
+*
+*/
+
+
+/**
+* Implements hook_field_formatter_info().
+*/
+function jump_link_formatter_field_formatter_info() {
+  $info = array(
+    'jump_link_formatter_formatter' => array(
+      'label' => t('Title as link title, URL as anchor'), 
+      'field types' => array('link_field'),
+      'description' => t('Displays Title as link title and suffixes the URL with a "#" to be used as an anchor (aka jump link).'),
+      'settings'  => array( // Array of the settings we'll create
+        'link_class' => 'jump-link', //give a default value for when the form is first loaded
+        'smooth_scroll' => '0',
+      ),
+    ), 
+  );
+  return $info;
+}
+
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function jump_link_formatter_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  //This gets the view_mode where our settings are stored
+  $display = $instance['display'][$view_mode];
+  //This gets the actual settings
+  $settings = $display['settings'];
+
+  $element = array();
+  //Add formatter form elements
+  $element['link_class'] = array(
+    '#type'           => 'textfield',             // Use a select box widget
+    '#title'          => t('Link class'),         // Widget label
+    '#description'    => t('Add a link class'),   // Helper text
+    '#default_value'  => $settings['link_class'], // Get the value if it's already been set
+  );
+   $element['smooth_scroll'] = array(
+   	'#title' => t('Enable smooth scrolling. Requires jQuery Smooth Scroll to be added to the Libraries directory.'),
+    '#type'           => 'checkbox',
+    '#default_value'  => $settings['smooth_scroll'],
+    '#options'        => array(
+      '1'  => t('Javascript "smooth" scroll to anchor target'),
+      '0'  => t('Native jump to anchor target'),
+    ),
+  );
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function jump_link_formatter_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $summary = t('Custom class: @class', array(
+    '@class'     => $settings['link_class'],
+  ));
+  return $summary;
+}
+
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+
+function jump_link_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings']; // get the settings
+  $class = $settings['link_class'];
+  $smooth_scroll = $settings['smooth_scroll'];
+
+  foreach ($items as $delta => $item) {
+    $anchor = $item['url']; // Getting the actual value
+    $title = $item['title'];
+    // dpm($item);
+  }
+
+  if (!empty($anchor)) {
+	  
+	  // Remove root URL from link field
+	  $base_url = $GLOBALS['base_url'];
+	  $anchor = preg_replace('#^' . $base_url . '/#', '', $anchor);
+
+	  $options = array(
+	   'fragment' => $anchor,
+	   'external' => TRUE, // Removes '/' from href
+	    'attributes'  => array(
+	      'title' =>  $title, 
+	      'class' => array('jump-link'),
+	      ),
+	    'html' => TRUE, // This tells Drupal that we're sending HTML, not plain text, otherwise it would encode it
+	   );
+
+	  if ($class) {
+	  	$options['attributes']['class'][] = $class;
+	  }
+
+	  if ($smooth_scroll) {
+			// Add the JavaScript file and class.
+			$options['attributes']['class'][] = 'auto-scroll';
+			$element['#attached']['js'] = array(
+					drupal_get_path('module', 'jump_link_formatter') . '/js/jquery.smooth-scroll.js',
+					drupal_get_path('module', 'jump_link_formatter') . '/js/scroll-init.js',
+			 );
+
+  	}
+
+    $link = l($title, NULL, $options); // Create the Link
+    $element[0]['#markup'] = $link; // Assign it to the #markup of the element
+
+  } else {
+
+  	// If there is no anchor, remove title, label and all
+  	$element = array();
+
+  }
+
+  return $element;
+}

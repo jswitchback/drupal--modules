@@ -1,0 +1,5 @@
+name = Custom Entity Reference Formatters
+description = Includes custom entity reference formatter.
+package = Rapid Development Group
+core = 7.x
+

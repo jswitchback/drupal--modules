@@ -1,0 +1,4 @@
+name = "Jump Link"
+core = "7.x"
+package = "Rapid Development Group"
+description = Add jump link formatter to Link fields

@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * Implements hook_menu_alter().
+ */
+function oam_taxonomy_menu_alter(&$items) {
+  $items['taxonomy/term/%taxonomy_term']['page callback'] = 'oam_taxonomy_term_blog_page';
+}
+
+/**
+ * Page callback for taxonomy terms.
+ *
+ * Redirect selected vocabularies to custom functions, defaulting to the core
+ * taxonomy_term_page() function for all remaining terms.
+ */
+function oam_taxonomy_taxonomy_term_page($term) {
+  switch($term->vocabulary_machine_name) {
+    case 'TERM_MACHINE_NAME_HERE':
+      return oam_taxonomy_term_blog_page($term);
+    default:
+      return taxonomy_term_page($term);
+  }
+}
+
+/**
+ * Page callback for taxonomy teams vocabulary.
+ *
+ * Rewrite only the content portion of this page using views.
+ * The rest of the code here is a direct copy of the core function
+ * taxonomy_term_page() function.
+ */
+function oam_taxonomy_term_blog_page($term) {
+	dpm($term);
+  // Assign the term name as the page title.
+  drupal_set_title($term->name);
+
+  // Build breadcrumb based on the hierarchy of the term.
+  $current = (object) array(
+    'tid' => $term->tid,
+  );
+  // @todo This overrides any other possible breadcrumb and is a pure hard-coded
+  //   presumption. Make this behavior configurable per vocabulary or term.
+  $breadcrumb = array();
+  while ($parents = taxonomy_get_parents($current->tid)) {
+    $current = array_shift($parents);
+    $breadcrumb[] = l($current->name, 'taxonomy/term/' . $current->tid);
+  }
+  $breadcrumb[] = l(t('Home'), NULL);
+  $breadcrumb = array_reverse($breadcrumb);
+  drupal_set_breadcrumb($breadcrumb);
+  drupal_add_feed('taxonomy/term/' . $term->tid . '/feed', 'RSS - ' . $term->name);
+
+  // If there is a menu link to this term, the link becomes the last part of
+  // the active trail, and the link name becomes the page title. Thus, we must
+  // explicitly set the page title to be the node title.
+  $uri = entity_uri('taxonomy_term', $term);
+
+  // Set the term path as the canonical URL to prevent duplicate content.
+  drupal_add_html_head_link(array('rel' => 'canonical', 'href' => url($uri['path'], $uri['options'])), TRUE);
+  // Set the non-aliased path as a default shortlink.
+  drupal_add_html_head_link(array('rel' => 'shortlink', 'href' => url($uri['path'], array_merge($uri['options'], array('alias' => TRUE)))), TRUE);
+
+  $build = taxonomy_term_show($term);
+
+  // ********************** ADD CONTENT TO BUILD ARRAY ***********************
+
+  // This is the only deviation from the core function.
+  $build['members'] = array('#markup' => views_embed_view('team_members', 'block', $term->tid));
+
+  return $build;
+}

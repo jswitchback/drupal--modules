@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function simple_states_forms_form_alter(&$form, &$form_state, $form_id) {
+
+  switch ($form_id) {
+    case 'basic_page_node_form':
+      /////////////////////////////
+      // Hiding unused fields while alternate link field is populated.
+      // Using Drupal States API 
+      // https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_process_states/7
+      /////////////////////////
+
+      // Fields we want to hide
+      $fields = array(
+        'field_page_image',
+        // 'field_page_body', // We still need Summary for a teaser.
+        'field_page_file',
+        'field_related_content',
+      );
+
+      // Input "name" attribute taken from Chrome inspector ... Used as jQuery selector
+      // This input field decides whether the others show/hide
+      $field_string = 'field_page_alternate_link[und][0][url]';
+
+      // Loop fields to add State in render array of each field we want to hide.
+      foreach ($fields as $field) {
+        $form[$field]['#states'] = array(
+          'invisible' => array(
+            ':input[name="' . $field_string. '"]' => array('empty' => FALSE),
+          ),
+        );
+      }
+      break;
+
+    break;
+  }
+}

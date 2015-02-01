@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function dev_helpers_menu() {
+  $items = array();
+
+  $items['jquery_ui_theme'] = array(
+    'title' => 'Jquery UI Theme Test Page',
+    'description' => 'Jquery UI Theme Example',
+    'page callback' => 'theme',
+    'page arguments' => array('test_jquery_ui_theme'),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function dev_helpers_theme() {
+  $items = array();
+
+  $items['test_jquery_ui_theme'] = array(
+    'template' => 'jquery-ui-theme-test-page',
+  );
+
+  return $items;
+}
+
+
+function dev_helpers_preprocess_page(&$variables) {
+
+  drupal_add_css(drupal_get_path('module', 'dev_helpers') . '/css/jquery-ui-1.9-example.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
+  drupal_add_library('system', 'ui.tabs');
+  drupal_add_library('system', 'ui.accordion');
+  drupal_add_library('system', 'ui.dialog');
+  drupal_add_library('system', 'ui.datepicker');
+  drupal_add_library('system', 'ui.progressbar');
+  drupal_add_library('system', 'ui.autocomplete');
+  drupal_add_library('system', 'ui.slider');
+  drupal_add_js(drupal_get_path('module', 'dev_helpers') .'/js/jquery-ui-1.9-example.js', 'file');
+
+
+}
+
+

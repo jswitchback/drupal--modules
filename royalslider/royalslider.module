@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Implements hook_library().
+ */
+function royalslider_library() {
+  // Touch Carousel
+  $libraries['royalslider'] = array(
+    'title' => 'Carousel',
+    'website' => 'http://dimsemenov.com/plugins/touchcarousel/',
+    'version' => '1.1',
+    'js' => array(
+      drupal_get_path('module', 'royalslider') . '/js/jquery.royalslider.js' => array(),
+      drupal_get_path('module', 'royalslider') . '/js/jquery.rs.animated-blocks.js' => array(),
+      drupal_get_path('module', 'royalslider') . '/js/jquery.rs.bullets.js' => array(),
+      drupal_get_path('module', 'royalslider') . '/js/jquery.rs.autoplay.js' => array(),
+    ),
+    'css' => array(
+      drupal_get_path('module', 'royalslider') . '/css/royalslider.css' => array(
+        'type' => 'file',
+        'media' => 'screen',
+      ),
+      drupal_get_path('module', 'royalslider') . '/css/skins/minimal-white/rs-minimal-white.css' => array(
+        'type' => 'file',
+        'media' => 'screen',
+      ),
+      drupal_get_path('module', 'royalslider') . '/css/custom.css' => array(
+        'type' => 'file',
+        'media' => 'screen',
+      ),
+    ),
+  );
+      
+  return $libraries;
+}
+
+// function royalslider_preprocess_views_view(&$variables) {
+//   $view = &$variables['view'];
+
+//   if ($view->current_display == 'home_slideshow_block') {
+//   }
+// }
+
+function royalslider_preprocess_page(&$variables) {
+
+  drupal_add_library('royalslider', 'royalslider');
+  drupal_add_js(drupal_get_path('module', 'royalslider') . '/js/carousel-init.js', array());
+
+}

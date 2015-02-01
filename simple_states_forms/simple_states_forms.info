@@ -1,0 +1,9 @@
+name = Simple states on Drupal forms
+description = Provides show/hiding states to Drupal forms.
+package = Search
+core = 7.x
+
+version = "7.x-1.0"
+core = "7.x"
+project = "simple_states_forms"
+

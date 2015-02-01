@@ -1,0 +1,239 @@
+<?php
+
+/**
+ * @file
+ * Provides an additional formatter for image core field,
+ * to link to an image style.
+ */
+
+
+/**
+ * Implements hook_library().
+ */
+function magnific_popup_library() {
+  $libraries = array();
+  $magnific_library_path = libraries_get_path('magnific-popup', FALSE);
+  $module_path = drupal_get_path('module', 'magnific_popup');
+
+  if (empty($magnific_library_path)) {
+    drupal_set_message(t('Please install the Magnific Popup JS library in sites/.../libraries/magnific-popup/.'), 'error');
+    return array();
+  }
+  
+  $libraries['magnific_popup'] = array(
+    'title' => 'Magnific Popup jQuery Plugin',
+    'website' => 'http://dimsemenov.com/plugins/magnific-popup/',
+    'version' => '1',
+    'js' => array(
+      $magnific_library_path . "/dist/magnificpopup.js" => array('type' => 'file','weight' => 950),
+    ),
+    'css' => array(
+      $magnific_library_path . "/dist/magnific-popup.css" => array('type' => 'file'),
+    ),
+    'dependencies' => array(
+      array('system', 'jquery'),
+    ),
+  );
+  
+  $libraries['magnific_popup_init'] = array(
+    'title' => 'Magnific Popup Module Extension',
+    'website' => '',
+    'version' => '1',
+    'js' => array(
+      $module_path . "/js/magnific_popup_module.js" => array('type' => 'file','weight' => 960),
+    ),
+    'css' => array(
+      $module_path ."/css/magnific_popup_module.css" => array('type' => 'file'),
+    ),
+    'dependencies' => array(
+      array('magnific_popup', 'magnific_popup'),
+    ),
+  );
+  
+  return $libraries;
+}
+
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function magnific_popup_field_formatter_info() {
+  $formatters = array(
+    'rdg_magnific_popup' => array(
+      'label' => t('Image link to image style'),
+      'field types' => array('image'),
+      'settings' => array(
+        'image_style' => '',
+        'image_link_style' => '',
+        'use_modal' => '1',
+        'is_gallery' => '1',
+        'modal_class' => '', 
+      ),
+    ),
+  );
+
+  return $formatters;
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function magnific_popup_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $image_styles = image_style_options(FALSE);
+  $element['image_style'] = array(
+    '#title' => t('Image style'),
+    '#type' => 'select',
+    '#default_value' => $settings['image_style'],
+    '#empty_option' => t('None (original image)'),
+    '#options' => $image_styles,
+  );
+  $element['image_link_style'] = array(
+    '#title' => t('Link image to'),
+    '#type' => 'select',
+    '#default_value' => $settings['image_link_style'],
+    '#empty_option' => t('None (original image)'),
+    '#options' => $image_styles,
+  );
+  $element['use_modal'] = array(
+    '#title' => t('Open image in modal'),
+    '#type'           => 'checkbox',
+    '#default_value'  => $settings['use_modal'],
+    '#options'        => array(
+      '1'  => t('Open target image in popup.'),
+      '0'  => t('Open image in new window.')
+    ),
+  );
+  $element['is_gallery'] = array(
+    '#title' => t('Open image in gallary style modal'),
+    '#type'           => 'checkbox',
+    '#default_value'  => $settings['is_gallery'],
+    '#options'        => array(
+      '1'  => t('Open image in gallery style popup.'),
+      '0'  => t('No gallery')
+    ),
+  );
+  $element['modal_class'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('Modal wrapper class'),
+    '#default_value'  => $settings['modal_class'],
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function magnific_popup_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary = array();
+
+  $image_styles = image_style_options(FALSE);
+  // Unset possible 'No defined styles' option.
+  unset($image_styles['']);
+  // Styles could be lost because of enabled/disabled modules that defines
+  // their styles in code.
+  if (isset($image_styles[$settings['image_style']])) {
+    $summary[] = t('Image style: @style', array('@style' => $image_styles[$settings['image_style']]));
+  }
+  else {
+    $summary[] = t('Original image');
+  }
+
+  if (isset($image_styles[$settings['image_link_style']])) {
+    $summary[] = t('Linked to image style: @style', array('@style' => $image_styles[$settings['image_link_style']]));
+  }
+  else {
+    $summary[] = t('Linked to original image');
+  }
+
+  if ($settings['use_modal']) {
+    $summary[] = t('Open in popup');
+  }
+  else {
+    $summary[] = t('Open in new window');
+  }
+
+  if ($settings['is_gallery']) {
+    $summary[] = t('Open as gallery');
+  }
+
+  $modal_class_description = 'Modal wrapper class: <em>@modal_class</em>';
+
+  $summary[] = t($modal_class_description, array(
+    '@modal_class'  => $settings['modal_class'],
+  ));
+
+
+  return implode('<br />', $summary);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function magnific_popup_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+  $use_modal = $settings['use_modal'];
+  $is_gallery = $settings['is_gallery'];
+  $modal_class = 'mfp-' + check_plain($field['field_name']);
+  $link_class = 'image-nomodal';
+
+  if ($use_modal) {
+    // Add the class.
+    $init_class = 'mfp-image-init';
+  }
+
+  if ($is_gallery) {
+    // Override single modal class
+    $init_class = '';
+  }
+
+  if (!empty($settings['modal_class'])) {
+    // Override default class with custom setting class
+    $modal_class = drupal_html_class($settings['modal_class']);
+  } 
+
+  foreach ($items as $delta => $item) {
+
+    // Add class to image element
+    // $item['attributes']['class'][] =  $image_class;
+
+    if (isset($display['settings']['image_link_style'])) {
+      $path = image_style_url($display['settings']['image_link_style'], $item['uri']);
+    }
+    else {
+      $path = file_create_url($item['uri']);
+    }
+    $uri = array(
+      'path' => $path,
+      'options' => array('attributes' => array('class' => array($init_class), 'data-modal-class' => $modal_class)),
+    );
+
+    $element[$delta] = array(
+      '#theme' => 'image_formatter',
+      '#item' => $item,
+      '#image_style' => $display['settings']['image_style'],
+      '#path' => $uri,
+    );
+  }
+
+  if ($is_gallery) {
+    $element['#prefix'] = '<div class="mfp-gallery-image-init">';
+    $element['#suffix'] = '</div>';
+  }
+
+  return $element;
+}
+
+/* Add Magnific Popup sitewide */
+function magnific_popup_preprocess_html(&$variables) {
+
+  drupal_add_library('magnific_popup', 'magnific_popup', FALSE);
+  drupal_add_library('magnific_popup', 'magnific_popup_init', FALSE);
+}

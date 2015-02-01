@@ -1,0 +1,6 @@
+core = "7.x"
+description = "Development JS and Pages, including /jquery-ui-theme page"
+
+name = "Dev Helpers"
+
+package = Custom

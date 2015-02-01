@@ -1,0 +1,107 @@
+<?php
+
+
+/**
+ * Implements hook_query_alter().
+ * removes content types defined in the excluded_content_types array from search results
+ * NOTE: This can be achieved in the UI with the Custom Search module
+ */
+function dummy_pages_query_alter(&$query) {
+  $is_search = FALSE;
+  $excluded_content_types = array(
+      'CONTENTTYPEMACHINENAME',
+    );
+  foreach ($query->getTables() as $table) {
+    if ($table['table'] == 'search_index') {
+      $is_search = TRUE;
+    }
+  }
+  if ($is_search) {
+    foreach ($excluded_content_types as $content_type) {
+      $query->condition('n.type', $content_type, '<>');
+    }
+  }
+}
+
+
+
+/**
+ * Implements hook_node_view().
+ *
+ * REMOVE FROM SEARCH
+ */
+function dummy_pages_node_view($node, $view_mode, $langcode) {
+  $type = $node->type;
+
+  //Exclude nodes from the search index if they are used as dummy pages.
+  if ($view_mode === 'search_index') {
+
+    ///////////////////////////////////
+    //  
+    // This is what needs to change
+    // Add your own conditions of node type or field settings here.
+    // Clearing out title and content will cause Drupal to remove from
+    // search results
+    //
+    ///////////////////////////////////
+
+    // Basic pages where node pages aren't used. Remove from search.
+    if (!empty($node->field_page_alternate_link)) {
+      // Emptying these will cause Drupal to not index these nodes in search.
+      $node->title = '';
+      $node->content = array();
+    }
+
+  } 
+
+}
+
+/*
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("node" in this case.)
+ *
+ * REMOVE FROM SEARCH ENGINE INDEXING VIA ROBOTS META TAG. 
+ * This example uses node pages but the "drupal_add_html_head" can be used in any hook.
+ *
+ */
+function dummy_pages_preprocess_node(&$variables, $hook) {
+  $type = $variables['type'];
+  $view_mode = $variables['view_mode'];
+
+  switch ($type) {
+
+      case 'CONTENTTYPEMACHINENAME':
+
+        // Add robots noindex to prevent search engines from crawling these dummy pages.
+        if ($view_mode == 'full') {
+
+
+            ///////////////////////////////////
+            // 
+            // This is what needs to change
+            // Add your own conditions of node type or field settings here.
+            //
+            ///////////////////////////////////
+
+            if (isset($variables['field_service_show_link']) && $variables['field_service_show_link'][0]['value'] == 0) {
+
+            $element = array(
+              '#tag' => 'meta', 
+              '#attributes' => array(
+                'name' => 'robots', 
+                'content' => 'noindex',
+              ),
+            );
+            drupal_add_html_head($element, 'oam_noindex');
+            }
+
+        }
+
+        break;
+
+      break;
+  }
+}

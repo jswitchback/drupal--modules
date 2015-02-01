@@ -1,0 +1,115 @@
+<?php
+/**
+ * @file
+ * adds a formatter for file fields 
+ *
+ */
+
+ /**
+ * Implements hook_field_formatter_info().
+ */
+function entity_reference_formatter_field_formatter_info() {
+  return array(
+    'entity_reference_formatter' => array( //Machine name of the formatter
+      'label' => t('Custom Entity Reference Link'),
+      'field types' => array('entityreference'), 
+      'settings'  => array( 
+        'url_prefix' => '', 
+        'url_suffix' => '',
+      ),
+    ),
+  );
+}
+
+// simple_file_formatter
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function entity_reference_formatter_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  //This gets the view_mode where our settings are stored
+  $display = $instance['display'][$view_mode];
+  //This gets the actual settings
+  $settings = $display['settings'];
+  //Initialize the element variable
+  $element = array();
+  // Add settings
+  $element['url_prefix'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('URL prefix'),
+    '#description'    => t('Do not include preceding slash.'),
+    '#default_value'  => $settings['url_prefix'],
+  );
+  $element['url_suffix'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('URL Suffix'),
+    // '#description'    => t('Preceding slash may be necessary.'),
+    '#default_value'  => $settings['url_suffix'],
+  );
+  return $element;
+}
+
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function entity_reference_formatter_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  $summary_description = 'Outputs URL: <em>@url_prefixENTITY_ID@url_suffix</em>';
+
+  $summary = t($summary_description, array(
+    '@url_prefix'     => ltrim($settings['url_prefix'], '/'),
+    '@url_suffix'  => $settings['url_suffix'],
+  ));
+
+  return $summary;
+}
+
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function entity_reference_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+  $base_url = $GLOBALS['base_url'];
+  $url_prefix = check_url($settings['url_prefix']);
+  $url_suffix = check_url($settings['url_suffix']);
+
+  $links = array(
+   '#theme'=> 'item_list',
+   '#type' => 'ul',
+    '#atttributes' => array(
+      'class' => array('test'),
+    ),
+    '#items' => array(),
+  );
+
+  foreach ($items as $delta => $item) {
+    $entity_id = $item['target_id'];
+    $entity = entity_load_single($entity_type, $entity_id);
+    // @TODO: Expects node. Write for user entity as well.
+    $title = $entity->title;
+    $url = $base_url . '/' . ltrim($url_prefix, '/') . $entity_id . $url_suffix;
+
+    $link_options = array(
+      'attributes'  => array(
+        'title' =>  $title, 
+        // 'class' => array('tag tag-blog'),
+        ),
+      'html' => TRUE, // This tells Drupal that we're sending HTML, not plain text, otherwise it would encode it
+    );
+
+    $link = l($title, $url, $link_options);
+
+    $links['#items'][$delta] = $link;
+
+  }
+
+  // If we set the entire array to $links then the field markup gets overidden
+  $element[0] = $links;
+
+  return $element;
+}

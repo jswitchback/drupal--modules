@@ -1,0 +1,70 @@
+<?php
+
+
+/*
+* Implements hook_entity_info_alter().
+*/
+function search_view_mode_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['search_display'] = array(
+    'label' => t('Search Result Display'),
+    'custom settings' => FALSE,
+  );
+}
+
+
+function search_view_mode_preprocess_search_result(&$variables) {
+  $module = $variables['module'];
+  $result = $variables['result'];
+  $type = $result['type'];
+  $template_type = '';
+  $variables['is_search_display_view_mode'] = FALSE;
+
+  // Core modules are Node, User and Taxonomy
+  switch ($module) {
+    case 'node':
+        $node_type = $variables['result']['node']->type;
+
+        // Since it's a node we'll use the machine name of the content type for a template suggestion.
+        $template_type = $node_type;
+
+            // Check to see if Search Display view mode is active for this search result
+            // "vikinggroupinc" theme has a custom template for this.
+            $view_mode_settings = field_view_mode_settings('node', $node_type);
+
+            if (array_key_exists('search_display', $view_mode_settings) && $view_mode_settings['search_display']['custom_settings'] === TRUE) {
+                $variables['is_search_display_view_mode'] = TRUE;
+
+                $content = node_view($result['node'], 'search_display');
+                $variables['search_result'] = render($content);
+
+            }
+
+        break;
+    
+    default:
+
+        // Modules provide a "type" but they aren't ready for primetime as a machine name.
+        // Make lower case and convert spaces to underscores
+        $template_type = drupal_strtolower($type);
+        $template_type = str_replace(' ', '_', $type);
+
+        break;
+  }
+
+  // Adding a template suggestion to allow future search result templates by type
+  // Example for location results: search-result--node--location.tpl.php
+  $variables['theme_hook_suggestions'][] = 'search_result__' . $module . '__' . $template_type;
+}
+
+
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function search_view_mode_preprocess_node(&$variables) {
+  if ($variables['view_mode'] == 'search_display') {
+    $variables['theme_hook_suggestions'][] = 'node__search_display';
+    $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__search_display';
+  }
+}
+

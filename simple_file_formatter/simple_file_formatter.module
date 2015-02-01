@@ -1,0 +1,160 @@
+<?php
+/**
+ * @file
+ * adds a formatter for file fields 
+ *
+ */
+
+ /**
+ * Implements hook_field_formatter_info().
+ */
+function simple_file_formatter_field_formatter_info() {
+  return array(
+    'simple_file_formatter' => array( //Machine name of the formatter
+      'label' => t('Simple File Classes'),
+      'field types' => array('file'), 
+      'settings'  => array( 
+        'custom_class' => '', 
+        'custom_icon_class' => '',
+        'show_file_size' => 0,
+        'show_icon' => 0,
+      ),
+    ),
+  );
+}
+
+// simple_file_formatter
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function simple_file_formatter_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  //This gets the view_mode where our settings are stored
+  $display = $instance['display'][$view_mode];
+  //This gets the actual settings
+  $settings = $display['settings'];
+  //Initialize the element variable
+  $element = array();
+  // Add settings
+  $element['custom_class'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('Wrapper class'),
+    '#default_value'  => $settings['custom_class'],
+  );
+  $element['show_icon'] = array(
+    '#title' => t('Show icon'),
+    '#type'           => 'checkbox',
+    '#default_value'  => $settings['show_icon'],
+    '#options'        => array(
+      '1'  => t('Preppend icon markup to file link.'),
+      '0'  => t('Do not preppend.'),
+    ),
+  );
+  $element['custom_icon_class'] = array(
+    '#type'           => 'textfield',
+    '#title'          => t('Custom icon element class'),
+    // '#description'    => t('Default class:') . '<em>' .t('file-icon') . '<em>.',
+    '#default_value'  => $settings['custom_icon_class'],
+  );
+  $element['show_file_size'] = array(
+    '#title' => t('Show file size'),
+    '#type'           => 'checkbox',
+    '#default_value'  => $settings['show_file_size'],
+    '#options'        => array(
+      '1'  => t('Append file size.'),
+      '0'  => t('Do not append.'),
+    ),
+  );
+
+  return $element;
+}
+
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function simple_file_formatter_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  // dpm($settings);
+
+  $summary_description = 'Wrapper class: <em>@file_class</em></br>Icon class: <em>@icon_class</em>';
+
+  $summary = t($summary_description, array(
+    '@file_class'     => $settings['custom_class'],
+    '@icon_class'  => $settings['custom_icon_class'],
+  ));
+
+  return $summary;
+}
+
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function simple_file_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+  $custom_file_class = check_plain($settings['custom_class']);
+  $custom_icon_class = check_plain($settings['custom_icon_class']);
+  $show_icon = $settings['show_icon'];
+  $show_filesize = $settings['show_file_size'];
+
+  $default_icon_class = 'has-file-icon';
+  $default_file_class = 'file';
+  $icon_classes = array($default_icon_class, $custom_icon_class);
+  $file_classes = array($default_file_class, $custom_file_class);
+  $html_icon = '<span class="file-icon' . ' ' . $custom_icon_class . '"></span>';
+
+  foreach ($items as $delta => $item) {
+    $file_classes[] = 'file-type-' . drupal_html_class($item['filemime']);
+    $filename = $item['filename'];
+    $filesize =  format_size($item['filesize']);
+    $output = '';
+
+    $html_filesize = '<span class="file-size">' . $filesize . '</span>';
+
+    $link_text = $filename;
+    $url = file_create_url($item['uri']);
+
+    // Use the description as the link text if available.
+    if (!empty($item['description'])) {
+      $link_text = $item['description'];
+    }
+
+    $file_options = array(
+      'attributes' => array(
+        'type' => $filename . '; length=' . $filesize,
+        'title' => check_plain($filename),
+      ),
+    );
+
+    if ($show_icon) {
+      $output .= $html_icon;
+      $file_classes[] = 'has-icon';
+    }
+    
+    $output .= l($link_text, $url, $file_options);
+
+    if ($show_filesize) {
+      $output .= $html_filesize;
+    }
+
+    $element[$delta] =  array(
+      '#type' => 'markup',
+      '#prefix' => '<div class="' . implode(' ', $file_classes) . '">',
+      '#suffix' => '</div>',
+      '#markup' => $output,
+    );
+
+    if ($show_icon || $show_filesize) {
+      $element[$delta]['#attached']['css'] = array(
+        drupal_get_path('module', 'simple_file_formatter') . '/css/simple-file.css',
+      );
+    }
+
+  }
+
+  return $element;
+}

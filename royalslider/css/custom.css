@@ -1,0 +1,21 @@
+/*.carousel-strip {}
+*/
+
+.rsMinW, .rsMinW .rsOverflow, .rsMinW .rsSlide, .rsMinW .rsVideoFrameHolder, .rsMinW .rsThumbs {
+	background: transparent;
+}
+
+.rsArrowRight {
+	right: 12px;
+	bottom: auto;
+	top: 50%;
+	margin-top: -16px;
+}
+
+.rsArrowLeft {
+	right: auto;
+	left: 12px;
+	bottom: auto;
+	top: 50%;
+	margin-top: -16px;
+}

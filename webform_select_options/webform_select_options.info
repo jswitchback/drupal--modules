@@ -1,0 +1,5 @@
+name = Webform select options 
+description = Custom select options for webforms.
+package = Rapid Development Group
+core = 7.x
+
