@@ -15,15 +15,14 @@ function form_item_states_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'basic_page_node_form':
       /////////////////////////////
-      // Hiding unused fields while alternate link field is populated.
-      // Using Drupal States API 
+      // Hiding unused fields using Drupal States API 
       // https://api.drupal.org/api/drupal/includes%21common.inc/function/drupal_process_states/7
       /////////////////////////
 
       // Fields we want to hide
       $fields = array(
         'field_page_image',
-        // 'field_page_body', // We still need Summary for a teaser.
+        'field_page_body',
         'field_page_file',
         'field_related_content',
       );
@@ -40,8 +39,6 @@ function form_item_states_form_alter(&$form, &$form_state, $form_id) {
           ),
         );
       }
-      break;
-
     break;
   }
 }

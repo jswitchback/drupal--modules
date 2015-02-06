@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * Implements hook_query_alter().
  * removes content types defined in the excluded_content_types array from search results
@@ -22,7 +21,6 @@ function dummy_pages_query_alter(&$query) {
     }
   }
 }
-
 
 
 /**
@@ -53,8 +51,8 @@ function dummy_pages_node_view($node, $view_mode, $langcode) {
     }
 
   } 
-
 }
+
 
 /*
  *
@@ -73,35 +71,28 @@ function dummy_pages_preprocess_node(&$variables, $hook) {
 
   switch ($type) {
 
-      case 'CONTENTTYPEMACHINENAME':
+    case 'CONTENTTYPEMACHINENAME':
 
-        // Add robots noindex to prevent search engines from crawling these dummy pages.
-        if ($view_mode == 'full') {
+      // Add robots noindex to prevent search engines from crawling these dummy pages.
+      if ($view_mode == 'full') {
 
+          ///////////////////////////////////
+          // 
+          // This is what needs to change
+          // Add your own conditions for node type or field settings here.
+          //
+          ///////////////////////////////////
 
-            ///////////////////////////////////
-            // 
-            // This is what needs to change
-            // Add your own conditions of node type or field settings here.
-            //
-            ///////////////////////////////////
+          $element = array(
+            '#tag' => 'meta', 
+            '#attributes' => array(
+              'name' => 'robots', 
+              'content' => 'noindex',
+            ),
+          );
+          drupal_add_html_head($element, 'oam_noindex');
 
-            if (isset($variables['field_service_show_link']) && $variables['field_service_show_link'][0]['value'] == 0) {
-
-            $element = array(
-              '#tag' => 'meta', 
-              '#attributes' => array(
-                'name' => 'robots', 
-                'content' => 'noindex',
-              ),
-            );
-            drupal_add_html_head($element, 'oam_noindex');
-            }
-
-        }
-
-        break;
-
-      break;
+      }
+    break;
   }
 }

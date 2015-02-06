@@ -1,6 +1,5 @@
 <?php
 
-
 /*
 * Implements hook_entity_info_alter().
 */
@@ -11,15 +10,17 @@ function search_view_mode_entity_info_alter(&$entity_info) {
   );
 }
 
-
+/*
+* Implements hook_preprocess_search_result().
+*/
 function search_view_mode_preprocess_search_result(&$variables) {
   $module = $variables['module'];
   $result = $variables['result'];
   $type = $result['type'];
-  $template_type = '';
+  $template_type = NULL;
   $variables['is_search_display_view_mode'] = FALSE;
 
-  // Core modules are Node, User and Taxonomy
+  // Core search modules are Node, User and Taxonomy
   switch ($module) {
     case 'node':
         $node_type = $variables['result']['node']->type;
@@ -28,7 +29,6 @@ function search_view_mode_preprocess_search_result(&$variables) {
         $template_type = $node_type;
 
             // Check to see if Search Display view mode is active for this search result
-            // "vikinggroupinc" theme has a custom template for this.
             $view_mode_settings = field_view_mode_settings('node', $node_type);
 
             if (array_key_exists('search_display', $view_mode_settings) && $view_mode_settings['search_display']['custom_settings'] === TRUE) {
