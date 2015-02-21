@@ -4,67 +4,255 @@
 * Implements hook_entity_info_alter().
 */
 function search_view_mode_entity_info_alter(&$entity_info) {
+  // dpm($entity_info);
   $entity_info['node']['view modes']['search_display'] = array(
     'label' => t('Search Result Display'),
     'custom settings' => FALSE,
   );
+  $entity_info['user']['view modes']['search_display'] = array(
+    'label' => t('Search Result Display'),
+    'custom settings' => FALSE,
+  );
+  // @TODO: Support taxonomy term results
+  // $entity_info['taxonomy_term']['view modes']['search_display'] = array(
+  //   'label' => t('Search Result Display'),
+  //   'custom settings' => FALSE,
+  // );
 }
-
-/*
-* Implements hook_preprocess_search_result().
-*/
-function search_view_mode_preprocess_search_result(&$variables) {
-  $module = $variables['module'];
-  $result = $variables['result'];
-  $type = $result['type'];
-  $template_type = NULL;
-  $variables['is_search_display_view_mode'] = FALSE;
-
-  // Core search modules are Node, User and Taxonomy
-  switch ($module) {
-    case 'node':
-        $node_type = $variables['result']['node']->type;
-
-        // Since it's a node we'll use the machine name of the content type for a template suggestion.
-        $template_type = $node_type;
-
-            // Check to see if Search Display view mode is active for this search result
-            $view_mode_settings = field_view_mode_settings('node', $node_type);
-
-            if (array_key_exists('search_display', $view_mode_settings) && $view_mode_settings['search_display']['custom_settings'] === TRUE) {
-                $variables['is_search_display_view_mode'] = TRUE;
-
-                $content = node_view($result['node'], 'search_display');
-                $variables['search_result'] = render($content);
-
-            }
-
-        break;
-    
-    default:
-
-        // Modules provide a "type" but they aren't ready for primetime as a machine name.
-        // Make lower case and convert spaces to underscores
-        $template_type = drupal_strtolower($type);
-        $template_type = str_replace(' ', '_', $type);
-
-        break;
-  }
-
-  // Adding a template suggestion to allow future search result templates by type
-  // Example for location results: search-result--node--location.tpl.php
-  $variables['theme_hook_suggestions'][] = 'search_result__' . $module . '__' . $template_type;
-}
-
 
 
 /**
  * Implements hook_preprocess_node().
  */
 function search_view_mode_preprocess_node(&$variables) {
-  if ($variables['view_mode'] == 'search_display') {
-    $variables['theme_hook_suggestions'][] = 'node__search_display';
-    $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__search_display';
+  $view_mode = $variables['view_mode'];
+  if ($view_mode == 'search_display') {
+    // Force Drupal core's node.tpl.php to skip rendering title
+    $variables['page'] = TRUE;
+
+    // Start with a consistency of markup for results.
+    $variables['submitted'] =  t('by !username on !datetime',
+          array(
+          '!username' => '<span class="author">'. $variables['name'] . '</span>',
+          '!datetime' => '<span class="date"><time>' . format_date($variables['created'], 'short') . '</span>',
+    ));
+
+    $variables['theme_hook_suggestions'][] = 'node__svm__' . $view_mode;
+    $variables['theme_hook_suggestions'][] = 'node__svm__' . $view_mode . '__' . $variables['type'];
   }
 }
+
+
+// @TODO: Support taxonomy term results
+/**
+ * Override or insert variables into the taxonomy term templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("block" in this case.)
+ */
+// function search_view_mode_preprocess_taxonomy_term(&$variables) {
+//   if ($variables['view_mode'] === 'search_display') {
+//       $variables['theme_hook_suggestions'][] = 'term__search_display';
+//       $variables['theme_hook_suggestions'][] = 'term__search_display__' . $variables['vocabulary_machine_name'];
+//   }
+// }
+
+
+/**
+ * Implements hook_preprocess_user_profile().
+ */
+function search_view_mode_preprocess_user_profile(&$variables) {
+  if ($variables['elements']['#view_mode'] === 'search_display') {
+    $variables['theme_hook_suggestions'][] = 'user_profile__svm__' . $variables['view_mode'];
+    foreach ($variables['elements']['#account']->roles as $role) {
+      $variables['theme_hook_suggestions'][] = 'user_profile__svm__' . $variables['view_mode'] . '__' . str_replace(' ', '_', $role);;
+    }
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function search_view_mode_theme() {
+  return array(
+    'search_result_svm' => array(
+      'variables' => array('result' => NULL, 'module' => NULL),
+      // 'file' => 'search.pages.inc',
+      'template' => 'search-result--svm',
+      'path' => drupal_get_path('module', 'search_view_mode') . '/theme',
+    ),
+  );
+}
+
+
+/**
+ * Process variables for search-results.tpl.php.
+ *
+ * The $variables array contains the following arguments:
+ * - $results: Search results array.
+ * - $module: Module the search results came from (module implementing
+ *   hook_search_info()).
+ *
+ * @see search-results.tpl.php
+ *
+ *
+ * MODULE NOTE!!: Altering Search modules preprocess to change result template
+ * when node has "Search Result Display" enabled.
+ *
+ */
+function search_view_mode_preprocess_search_results(&$variables) {
+  $module = $variables['module'];
+  $bundle = ''; // Content type for nodes, just "user" for users
+  $account = NULL;
+  $variables['search_results'] = '';
+
+  if (!empty($module)) {
+    $variables['module'] = check_plain($variables['module']); // 'node', 'user', 'taxonomy term'
+  }
+
+  // User does not change bundle types so we set it out of the loop.
+  if ($module === 'user') {
+    $bundle = 'user';
+  }
+
+  foreach ($variables['results'] as $result) {
+
+    if ($module === 'node') {
+      $bundle = $result['node']->type; // ie node type to get view mode settings for (basic_page, article, etc.)
+    }
+
+    // @TODO: When adding Taxonomy term support, can settings be retrieved this way?
+    $view_mode_settings = field_view_mode_settings($module, $bundle);
+    $is_custom_view = array_key_exists('search_display', $view_mode_settings);
+
+    if ($is_custom_view && $view_mode_settings['search_display']['custom_settings'] === TRUE) {
+      $variables['search_results'] .= theme('search_result_svm', array('result' => $result, 'module' => $module));
+      $variables['theme_hook_suggestions'][] = 'search__results__svm__' . $variables['module'];
+    } else {
+      $variables['search_results'] .= theme('search_result', array('result' => $result, 'module' => $module));
+    }
+  }
+  $variables['pager'] = theme('pager', array('tags' => NULL));
+}
+
+
+
+/**
+ * Process variables for search-result--svm.tpl.php.
+ *
+ * The $variables array contains the following arguments:
+ * - $result
+ * - $module
+ *
+ * @see search-result--svm.tpl.php
+ *
+ *
+ * NOTE: I would rather not uses a custom template preprocess but
+ * my search result override templates are not being picked up by Drupal.
+ *
+ */
+function search_view_mode_preprocess_search_result_svm(&$variables) {
+  global $language;
+
+  $result = $variables['result'];
+  $variables['url'] = check_url($result['link']);
+  $variables['title'] = check_plain($result['title']);
+  $module = $variables['module'];
+  $variables['info'] = NULL;
+
+  if (isset($result['language']) && $result['language'] != $language->language && $result['language'] != LANGUAGE_NONE) {
+    $variables['title_attributes_array']['xml:lang'] = $result['language'];
+    $variables['content_attributes_array']['xml:lang'] = $result['language'];
+  }
+
+  $info = array();
+  if (!empty($result['module'])) {
+    $info['module'] = check_plain($result['module']);
+  }
+  if (!empty($result['user'])) {
+    $info['user'] = $result['user'];
+    $variables['author'] = $result['user'];
+  }
+  if (!empty($result['date'])) {
+    $info['date'] = format_date($result['date'], 'short');
+    $variables['date'] = $info['date'];
+  }
+  if (isset($result['extra']) && is_array($result['extra'])) {
+    $info = array_merge($info, $result['extra']);
+  }
+
+  switch ($module) {
+    case 'node':
+      $bundle = $result['node']->type; // ie node type to get view mode settings for (basic_page, article, etc.)
+      break;
+    case 'user':
+      $bundle = 'user';
+      break;
+  }
+
+  $variables['theme_hook_suggestions'][] = 'search_result__svm';
+  $variables['theme_hook_suggestions'][] = 'search_result__svm__' . $variables['module'];
+
+  // $variables['snippet'] = isset($result['snippet']) ? $result['snippet'] : '';
+  // Rendering  content variable here for speedyness.
+  // Override node & user templates to effect the $content variable before it's rendered to a search result. (ie preprocess or ee template suggestions above)
+  switch ($variables['module']) {
+    case 'node':
+      $content = node_view($result['node'], 'search_display');
+      $variables['snippet'] = render($content);
+      $variables['theme_hook_suggestions'][] = 'search_result__svm__' . $variables['module'] . '__' . $result['node']->type;
+      break;
+
+    case 'user':
+      // User id not readily available in result like node, so we're stripping the username from the title
+      // @TODO: Get UID sent from further up the chain.
+      $regex = '/[^()]*/';
+      $template = 'user'; // ROLE
+      $username = preg_match($regex, $variables['title'], $matches);
+      $username = $matches[0];
+      $user =  user_load_by_name($username);
+
+      $content = user_view($user, 'search_display');
+      $variables['snippet'] = render($content);
+
+      // Add role template suggestions
+      foreach ($user->roles as $role) {
+        $role = str_replace(' ', '_', $role);
+        $variables['theme_hook_suggestions'][] = 'search_result__svm__' . $variables['module'] . '__' . $role;
+      }
+      break;
+  }
+
+  // Provide separated and grouped meta information..
+  $variables['info_split'] = $info;
+
+  // Create a sensible concatenation if this snippet info
+  foreach ($info as $key => $value) {
+    $class = drupal_html_class($key);
+    // These get printed separately in the template.
+    if ($key === 'user' || $key === 'date') {
+      continue;
+    }
+    $variables['info'] .= '<span class="' . $class . '">' . $value . '</span>';
+  }
+
+  $variables['classes_array'][] = 'search-result';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
