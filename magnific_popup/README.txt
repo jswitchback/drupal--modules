@@ -19,7 +19,7 @@ INSTALLATION
 TIPS
 ----
 
-Custom modal classes can be added with a "data-modal-class" attridbute added to link. <a href="#some-inline-div" class="mfp-inline-init" mdata-modal-class="login">Login</a>
+Custom modal classes can be added with a "data-modal-class" attribute added to link. <a href="#some-inline-div" class="mfp-inline-init" data-modal-class="login">Login</a>
 
 
 AUTHOR

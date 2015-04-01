@@ -22,6 +22,26 @@ function search_view_mode_entity_info_alter(&$entity_info) {
 
 
 /**
+ * Implements hook_theme_registry_alter().
+ *
+ * Getting Drupal to recognize template files.
+ * https://www.drupal.org/node/715160
+ */
+function search_view_mode_theme_registry_alter(&$theme_registry) {
+    $module_path = drupal_get_path('module', 'search_view_mode');
+    $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+
+    foreach ($template_file_objects as $key => $template_file_object) {
+        if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+            $theme_registry[$key]['theme path'] = $module_path;
+            $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+            $theme_registry[$key]['type'] = 'module';
+        }
+    }
+}
+
+
+/**
  * Implements hook_preprocess_node().
  */
 function search_view_mode_preprocess_node(&$variables) {
@@ -80,7 +100,6 @@ function search_view_mode_theme() {
   return array(
     'search_result_svm' => array(
       'variables' => array('result' => NULL, 'module' => NULL),
-      // 'file' => 'search.pages.inc',
       'template' => 'search-result--svm',
       'path' => drupal_get_path('module', 'search_view_mode') . '/theme',
     ),
@@ -113,7 +132,7 @@ function search_view_mode_preprocess_search_results(&$variables) {
     $variables['module'] = check_plain($variables['module']); // 'node', 'user', 'taxonomy term'
   }
 
-  // User does not change bundle types so we set it out of the loop.
+  // User does not change bundle type so we set it out of the loop.
   if ($module === 'user') {
     $bundle = 'user';
   }
@@ -241,18 +260,3 @@ function search_view_mode_preprocess_search_result_svm(&$variables) {
 
   $variables['classes_array'][] = 'search-result';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

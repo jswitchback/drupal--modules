@@ -19,13 +19,13 @@ function magnific_popup_library() {
     drupal_set_message(t('Please install the Magnific Popup JS library in sites/.../libraries/magnific-popup/.'), 'error');
     return array();
   }
-  
+
   $libraries['magnific_popup'] = array(
     'title' => 'Magnific Popup jQuery Plugin',
     'website' => 'http://dimsemenov.com/plugins/magnific-popup/',
     'version' => '1',
     'js' => array(
-      $magnific_library_path . "/dist/magnificpopup.js" => array('type' => 'file','weight' => 950),
+      $magnific_library_path . "/dist/jquery.magnific-popup.min.js" => array('type' => 'file','weight' => 950),
     ),
     'css' => array(
       $magnific_library_path . "/dist/magnific-popup.css" => array('type' => 'file'),
@@ -34,7 +34,7 @@ function magnific_popup_library() {
       array('system', 'jquery'),
     ),
   );
-  
+
   $libraries['magnific_popup_init'] = array(
     'title' => 'Magnific Popup Module Extension',
     'website' => '',
@@ -49,7 +49,7 @@ function magnific_popup_library() {
       array('magnific_popup', 'magnific_popup'),
     ),
   );
-  
+
   return $libraries;
 }
 
@@ -67,7 +67,7 @@ function magnific_popup_field_formatter_info() {
         'image_link_style' => '',
         'use_modal' => '1',
         'is_gallery' => '1',
-        'modal_class' => '', 
+        'modal_class' => 'mfp-default-modal',
       ),
     ),
   );
@@ -107,7 +107,7 @@ function magnific_popup_field_formatter_settings_form($field, $instance, $view_m
     ),
   );
   $element['is_gallery'] = array(
-    '#title' => t('Open image in gallary style modal'),
+    '#title' => t('Open image in gallery style modal'),
     '#type'           => 'checkbox',
     '#default_value'  => $settings['is_gallery'],
     '#options'        => array(
@@ -183,6 +183,8 @@ function magnific_popup_field_formatter_view($entity_type, $entity, $field, $ins
   $is_gallery = $settings['is_gallery'];
   $modal_class = 'mfp-' + check_plain($field['field_name']);
   $link_class = 'image-nomodal';
+  $init_class = '';
+
 
   if ($use_modal) {
     // Add the class.
@@ -190,14 +192,16 @@ function magnific_popup_field_formatter_view($entity_type, $entity, $field, $ins
   }
 
   if ($is_gallery) {
-    // Override single modal class
+    // Removing element modal class. Modal is initialized by wrapping class
     $init_class = '';
+    $element['#prefix'] = '<div class="mfp-gallery-image-init">';
+    $element['#suffix'] = '</div>';
   }
 
   if (!empty($settings['modal_class'])) {
     // Override default class with custom setting class
     $modal_class = drupal_html_class($settings['modal_class']);
-  } 
+  }
 
   foreach ($items as $delta => $item) {
 
@@ -221,11 +225,6 @@ function magnific_popup_field_formatter_view($entity_type, $entity, $field, $ins
       '#image_style' => $display['settings']['image_style'],
       '#path' => $uri,
     );
-  }
-
-  if ($is_gallery) {
-    $element['#prefix'] = '<div class="mfp-gallery-image-init">';
-    $element['#suffix'] = '</div>';
   }
 
   return $element;
