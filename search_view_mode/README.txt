@@ -24,13 +24,13 @@ search-result--svm.tpl.php
 
 These can be overridden specific to the search type:
 
-search-view-mode--SEARCHTYPE.tpl.php
+search-result--svm--SEARCHTYPE.tpl.php
 Example: search-result--svm--node.tpl.php
 Example: search-result--svm--user.tpl.php
 
 And even more specific:
 
-search-view-mode--user--ROLE.tpl.php
+search-result--svm--user--ROLE.tpl.php
 Example: search-result--svm--user--authenticated-user.tpl.php
 search-view-mode--node--NODETYPE.tpl.php
 Example: search-result--svm--node--basic-page.tpl.php
