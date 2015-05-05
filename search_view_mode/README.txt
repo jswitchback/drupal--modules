@@ -35,7 +35,7 @@ Example: search-result--svm--user--authenticated-user.tpl.php
 search-view-mode--node--NODETYPE.tpl.php
 Example: search-result--svm--node--basic-page.tpl.php
 
-These above templates can be overridden to affect wrapping markup. For greater <em>$content</em> variable control, preprocess the <em>search_display</em> view mode or add a template file. They can be overridden in templates or preprocesses as you would any other view mode. A few template suggestions have been added to further customize the search output.
+The above templates affect wrapping markup. For greater <em>$content</em> variable control, preprocess the <em>search_display</em> view mode or add a template file. The following template suggestions have been added to further customize the search output.
 
 node--svm.tpl.php
 node--svm--NODETYPE.tpl.php
