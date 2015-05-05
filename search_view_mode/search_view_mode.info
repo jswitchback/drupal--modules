@@ -1,5 +1,5 @@
 name = Search view mode
-description = Provides a view mode for search results.
+description = Provides a view mode for search results of type "node" and "user".
 package = Search
 core = 7.x
 

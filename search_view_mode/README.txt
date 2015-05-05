@@ -1,7 +1,7 @@
 DESCRIPTION
 -----------
 
-This module provides the as custom view mode for search results of type 'node' & 'user'.
+This module provides a custom view mode for search results of type 'node' & 'user'.
 
 
 INSTALLATION
