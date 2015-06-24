@@ -1,0 +1,6 @@
+name = Facet API Link Markup
+description = Custom theme functions for the Facet API Links
+core = 7.x
+package = Rapid Development Group
+
+dependencies[] = facetapi

@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function locations_google_map_block_info() {
+  $blocks = array();
+  $blocks['location_map'] = array(
+    'info' => t('Location Map'),
+  );
+  return $blocks;
+}
+
+/**
+* Implements hook_block_view().
+*/
+function locations_google_map_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'find_location':
+      $block['block_html_id'] = 'findus';
+      $block['content'] = array(
+      '#markup' => _find_location(),
+      );
+      break;
+    case 'location_map':
+      $block['content'] = array(
+      '#markup' => _location_map(),
+      '#attached' => array(
+          'css' => array(
+            drupal_get_path('module', 'locations_google_map') . '/css/map.css',
+          ),
+          'js' => array(
+            // '//maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry&signed_in=false&callback=scriptLoaded',
+            drupal_get_path('module', 'locations_google_map') . '/js/load-script.js',
+            drupal_get_path('module', 'locations_google_map') . '/js/Map.js',
+            drupal_get_path('module', 'locations_google_map') . '/js/map-init.js',
+          ),
+        ),
+      );
+      break;
+  }
+  return $block;
+}
+
+function _location_map() {
+  $output = '';
+  $output .= '<div id="map--canvas">';
+  $output .= '</div>';
+
+  return $output;
+}
+
+/*
+* Implements hook_entity_info_alter().
+*
+* Custom view mode to be used in map bubbles
+*/
+function locations_google_map_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['info_window'] = array(
+    'label' => t('Map Info Window'),
+    'custom settings' => FALSE,
+  );
+}
+
+/**
+ * Override or insert variables into the page template.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("page" in this case.)
+ */
+// function locations_google_map_preprocess_page(&$variables) {
+//   drupal_add_library('system', 'jquery.cookie');
+// }

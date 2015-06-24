@@ -1,0 +1,30 @@
+
+
+/* REMOVED MODULE CSS. ADDED CUSTOM CSS PER MCSPORTS WIDGET BELOW. Original found in /fivestar/css/fivestar.css */
+
+
+div.fivestar-widget-static .star,
+div.fivestar-widget .cancel,
+div.fivestar-widget .star {
+  float: right;
+}
+
+/* Combo Static and Rate Widget */
+.fivestar-combo-stars .fivestar-static-form-item {
+  float: right;
+  margin-left: 40px;
+  margin-right: 0px;
+}
+
+.fivestar-combo-stars .fivestar-form-item {
+  float: right; /* RTL */
+}
+
+/* Static View-only Star Version */
+div.fivestar-widget-static br {
+  clear: right;
+}
+
+div.fivestar-widget-static .star {
+  float: right;
+}

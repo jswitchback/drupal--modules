@@ -1,0 +1,6 @@
+name = Locations Google Map
+description = Custom features for a Google map including Geolocate button, custom map styles via Snazzy Maps. Requires set up of Views GeoJson route.
+package = Rapid Development Group
+core = 7.x
+version = 7.x-1.0
+

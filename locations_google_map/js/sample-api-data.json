@@ -1,0 +1,1069 @@
+{
+type: "FeatureCollection",
+features: [
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-93.578207,
+41.713349
+]
+},
+properties: {
+name: "Interstate Shopping Center",
+description: "<article class="node-7906 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/interstate-shopping-center">Interstate Shopping Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7906/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7906/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/interstate-shopping-center" rel="tag" title="Interstate Shopping Center">Read more<span class="element-invisible"> about Interstate Shopping Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.589764,
+42.911501
+]
+},
+properties: {
+name: "Grand Rapids",
+description: "<article class="node-7907 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/grand-rapids-hunt-fish">Grand Rapids + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7907/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7907/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/grand-rapids-hunt-fish" rel="tag" title="Grand Rapids + HUNT / FISH">Read more<span class="element-invisible"> about Grand Rapids + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-89.454291,
+43.035834
+]
+},
+properties: {
+name: "Nakmoa Place",
+description: "<article class="node-7908 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/nakoma-place-hunt-fish">Nakoma Place + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7908/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7908/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/nakoma-place-hunt-fish" rel="tag" title="Nakoma Place + HUNT / FISH">Read more<span class="element-invisible"> about Nakoma Place + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-83.79273,
+42.546863
+]
+},
+properties: {
+name: "Brighton",
+description: "<article class="node-7909 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/brighton-huntfish">Brighton + HUNT/FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7909/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7909/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/brighton-huntfish" rel="tag" title="Brighton + HUNT/FISH">Read more<span class="element-invisible"> about Brighton + HUNT/FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-81.864212,
+41.16563
+]
+},
+properties: {
+name: "Medina",
+description: "<article class="node-7910 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/medina-huntfish">Medina + HUNT/FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7910/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7910/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/medina-huntfish" rel="tag" title="Medina + HUNT/FISH">Read more<span class="element-invisible"> about Medina + HUNT/FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-87.70102,
+44.074341
+]
+},
+properties: {
+name: "Harbor Town Center",
+description: "<article class="node-7911 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/harbor-town-center-hunt-fish">Harbor Town Center + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7911/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7911/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/harbor-town-center-hunt-fish" rel="tag" title="Harbor Town Center + HUNT / FISH">Read more<span class="element-invisible"> about Harbor Town Center + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-84.970918,
+45.353037
+]
+},
+properties: {
+name: "Bear Creek Shopping Plaza",
+description: "<article class="node-7912 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/bear-creek-shopping-plaza-hunt-fish">Bear Creek Shopping Plaza + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7912/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7912/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/bear-creek-shopping-plaza-hunt-fish" rel="tag" title="Bear Creek Shopping Plaza + HUNT / FISH">Read more<span class="element-invisible"> about Bear Creek Shopping Plaza + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-86.107969,
+40.472109
+]
+},
+properties: {
+name: "Markland Mall",
+description: "<article class="node-7913 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/markland-mall-hunt-fish">Markland Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7913/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7913/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/markland-mall-hunt-fish" rel="tag" title="Markland Mall + HUNT / FISH">Read more<span class="element-invisible"> about Markland Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.370627,
+40.223325
+]
+},
+properties: {
+name: "Muncie Town Plaza",
+description: "<article class="node-7914 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/muncie-town-plaza-hunt-fish">Muncie Town Plaza + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7914/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7914/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/muncie-town-plaza-hunt-fish" rel="tag" title="Muncie Town Plaza + HUNT / FISH">Read more<span class="element-invisible"> about Muncie Town Plaza + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-89.128464,
+41.358235
+]
+},
+properties: {
+name: "Peru",
+description: "<article class="node-7915 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/peru-hunt-fish">Peru + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7915/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7915/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/peru-hunt-fish" rel="tag" title="Peru + HUNT / FISH">Read more<span class="element-invisible"> about Peru + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-92.375518,
+38.963839
+]
+},
+properties: {
+name: "Columbia Mall",
+description: "<article class="node-7916 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/columbia-mall-hunt-fish">Columbia Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7916/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7916/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/columbia-mall-hunt-fish" rel="tag" title="Columbia Mall + HUNT / FISH">Read more<span class="element-invisible"> about Columbia Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-83.747921,
+42.239789
+]
+},
+properties: {
+name: "Briarwood Mall",
+description: "<article class="node-7917 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/briarwood-mall-0">Briarwood Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7917/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7917/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/briarwood-mall-0" rel="tag" title="Briarwood Mall + HUNT / FISH">Read more<span class="element-invisible"> about Briarwood Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.898168,
+41.618531
+]
+},
+properties: {
+name: "Goshen",
+description: "<article class="node-7918 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/goshen-hunt-fish">Goshen + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7918/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7918/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/goshen-hunt-fish" rel="tag" title="Goshen + HUNT / FISH">Read more<span class="element-invisible"> about Goshen + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-93.262765,
+37.162536
+]
+},
+properties: {
+name: "Battlefield Mall",
+description: "<article class="node-7919 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/battlefield-mall-hunt-fish">Battlefield Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7919/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7919/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/battlefield-mall-hunt-fish" rel="tag" title="Battlefield Mall + HUNT / FISH">Read more<span class="element-invisible"> about Battlefield Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.16428,
+41.577948
+]
+},
+properties: {
+name: "Westfield Mall",
+description: "<article class="node-7920 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/westfield-mall-hunt-fish">Westfield Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7920/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7920/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/westfield-mall-hunt-fish" rel="tag" title="Westfield Mall + HUNT / FISH">Read more<span class="element-invisible"> about Westfield Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.643811,
+44.722858
+]
+},
+properties: {
+name: "Traverse City",
+description: "<article class="node-7921 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/traverse-city-hunt-fish">Traverse City + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7921/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7921/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/traverse-city-hunt-fish" rel="tag" title="Traverse City + HUNT / FISH">Read more<span class="element-invisible"> about Traverse City + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-86.573661,
+39.171361
+]
+},
+properties: {
+name: "Whitehall Crossing",
+description: "<article class="node-7922 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/whitehall-crossing-hunt-fish">Whitehall Crossing + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7922/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7922/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/whitehall-crossing-hunt-fish" rel="tag" title="Whitehall Crossing + HUNT / FISH">Read more<span class="element-invisible"> about Whitehall Crossing + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.976407,
+42.239719
+]
+},
+properties: {
+name: "Rockford",
+description: "<article class="node-7923 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/rockford-hunt-fish">Rockford + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7923/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7923/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/rockford-hunt-fish" rel="tag" title="Rockford + HUNT / FISH">Read more<span class="element-invisible"> about Rockford + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.401102,
+44.281435
+]
+},
+properties: {
+name: "Cadillac",
+description: "<article class="node-7924 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/cadillac-hunt-fish">Cadillac + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7924/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7924/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/cadillac-hunt-fish" rel="tag" title="Cadillac + HUNT / FISH">Read more<span class="element-invisible"> about Cadillac + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-83.578821,
+41.563957
+]
+},
+properties: {
+name: "Rossford",
+description: "<article class="node-7925 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/rossford-hunt-fish">Rossford + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7925/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7925/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/rossford-hunt-fish" rel="tag" title="Rossford + HUNT / FISH">Read more<span class="element-invisible"> about Rossford + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.503233,
+43.687908
+]
+},
+properties: {
+name: "Big Rapids Plaza",
+description: "<article class="node-7926 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/big-rapids-plaza-hunt-fish">Big Rapids Plaza + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7926/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7926/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/big-rapids-plaza-hunt-fish" rel="tag" title="Big Rapids Plaza + HUNT / FISH">Read more<span class="element-invisible"> about Big Rapids Plaza + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-84.152045,
+40.763909
+]
+},
+properties: {
+name: "Lima",
+description: "<article class="node-7927 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/lima-hunt-fish">Lima + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7927/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7927/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/lima-hunt-fish" rel="tag" title="Lima + HUNT / FISH">Read more<span class="element-invisible"> about Lima + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.649954,
+42.296242
+]
+},
+properties: {
+name: "Kalamazoo",
+description: "<article class="node-7928 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/kalamazoo-hunt-fish">Kalamazoo + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7928/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7928/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/kalamazoo-hunt-fish" rel="tag" title="Kalamazoo + HUNT / FISH">Read more<span class="element-invisible"> about Kalamazoo + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.757594,
+42.87412
+]
+},
+properties: {
+name: "Grandville",
+description: "<article class="node-7929 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/grandville-hunt-fish">Grandville + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7929/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7929/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/grandville-hunt-fish" rel="tag" title="Grandville + HUNT / FISH">Read more<span class="element-invisible"> about Grandville + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-93.235581,
+36.679818
+]
+},
+properties: {
+name: "The Shoppes at Branson Hills",
+description: "<article class="node-7930 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/shoppes-branson-hills">The Shoppes at Branson Hills</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7930/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7930/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/shoppes-branson-hills" rel="tag" title="The Shoppes at Branson Hills">Read more<span class="element-invisible"> about The Shoppes at Branson Hills</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-94.801358,
+39.771979
+]
+},
+properties: {
+name: "Hillcrest Plaza",
+description: "<article class="node-7931 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/hillcrest-plaza">Hillcrest Plaza</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7931/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7931/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/hillcrest-plaza" rel="tag" title="Hillcrest Plaza">Read more<span class="element-invisible"> about Hillcrest Plaza</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-92.248476,
+38.580748
+]
+},
+properties: {
+name: "Wildwood Crossing",
+description: "<article class="node-7932 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/wildwood-crossing">Wildwood Crossing</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7932/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7932/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/wildwood-crossing" rel="tag" title="Wildwood Crossing">Read more<span class="element-invisible"> about Wildwood Crossing</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-93.266939,
+43.145612
+]
+},
+properties: {
+name: "Willow Creek Shopping Center",
+description: "<article class="node-7933 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/willow-creek-shopping-center">Willow Creek Shopping Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7933/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7933/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/willow-creek-shopping-center" rel="tag" title="Willow Creek Shopping Center">Read more<span class="element-invisible"> about Willow Creek Shopping Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-91.315863,
+39.934804
+]
+},
+properties: {
+name: "Prairie Crossings Shopping Center",
+description: "<article class="node-7934 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/prairie-crossings-shopping-center">Prairie Crossings Shopping Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7934/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7934/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/prairie-crossings-shopping-center" rel="tag" title="Prairie Crossings Shopping Center">Read more<span class="element-invisible"> about Prairie Crossings Shopping Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-90.740711,
+42.507553
+]
+},
+properties: {
+name: "Ashley Place",
+description: "<article class="node-7935 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/ashley-place">Ashley Place</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7935/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7935/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/ashley-place" rel="tag" title="Ashley Place">Read more<span class="element-invisible"> about Ashley Place</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-89.515913,
+44.495296
+]
+},
+properties: {
+name: "Plover",
+description: "<article class="node-7936 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/plover">Plover</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7936/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7936/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/plover" rel="tag" title="Plover">Read more<span class="element-invisible"> about Plover</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.959263,
+39.921005
+]
+},
+properties: {
+name: "Forsyth",
+description: "<article class="node-7937 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/forsyth">Forsyth</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7937/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7937/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/forsyth" rel="tag" title="Forsyth">Read more<span class="element-invisible"> about Forsyth</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.956401,
+40.485889
+]
+},
+properties: {
+name: "Eastland Mall",
+description: "<article class="node-7938 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/eastland-mall">Eastland Mall</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7938/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7938/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/eastland-mall" rel="tag" title="Eastland Mall">Read more<span class="element-invisible"> about Eastland Mall</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.729213,
+41.949221
+]
+},
+properties: {
+name: "Dekalb Market Square",
+description: "<article class="node-7939 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/dekalb-market-square">Dekalb Market Square</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7939/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7939/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/dekalb-market-square" rel="tag" title="Dekalb Market Square">Read more<span class="element-invisible"> about Dekalb Market Square</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.61066,
+42.627967
+]
+},
+properties: {
+name: "Delavan Crossings",
+description: "<article class="node-7940 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/delavan-crossings">Delavan Crossings</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7940/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7940/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/delavan-crossings" rel="tag" title="Delavan Crossings">Read more<span class="element-invisible"> about Delavan Crossings</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-84.696821,
+45.027479
+]
+},
+properties: {
+name: "Gaylord",
+description: "<article class="node-7941 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/gaylord">Gaylord</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7941/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7941/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/gaylord" rel="tag" title="Gaylord">Read more<span class="element-invisible"> about Gaylord</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-84.211596,
+40.150768
+]
+},
+properties: {
+name: "Miami Valley Crossings",
+description: "<article class="node-7942 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/miami-valley-crossings">Miami Valley Crossings</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7942/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7942/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/miami-valley-crossings" rel="tag" title="Miami Valley Crossings">Read more<span class="element-invisible"> about Miami Valley Crossings</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.36285,
+41.798682
+]
+},
+properties: {
+name: "North Aurora Town Center",
+description: "<article class="node-7943 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/north-aurora-towne-center">North Aurora Towne Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7943/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7943/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/north-aurora-towne-center" rel="tag" title="North Aurora Towne Center">Read more<span class="element-invisible"> about North Aurora Towne Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.903018,
+39.248389
+]
+},
+properties: {
+name: "Columbus Center",
+description: "<article class="node-7944 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/columbus-center">Columbus Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7944/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7944/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/columbus-center" rel="tag" title="Columbus Center">Read more<span class="element-invisible"> about Columbus Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-86.202745,
+43.205073
+]
+},
+properties: {
+name: "West Shore Plaza",
+description: "<article class="node-7945 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/west-shore-plaza">West Shore Plaza</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7945/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7945/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/west-shore-plaza" rel="tag" title="West Shore Plaza">Read more<span class="element-invisible"> about West Shore Plaza</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.190891,
+43.397676
+]
+},
+properties: {
+name: "West Bend Corporate Center",
+description: "<article class="node-7946 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/west-bend-corporate-center">West Bend Corporate Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7946/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7946/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/west-bend-corporate-center" rel="tag" title="West Bend Corporate Center">Read more<span class="element-invisible"> about West Bend Corporate Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-87.888568,
+42.573557
+]
+},
+properties: {
+name: "Southport Plaza",
+description: "<article class="node-7947 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/southport-plaza">Southport Plaza</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7947/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7947/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/southport-plaza" rel="tag" title="Southport Plaza">Read more<span class="element-invisible"> about Southport Plaza</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-87.471058,
+41.528271
+]
+},
+properties: {
+name: "Highland",
+description: "<article class="node-7948 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/highland">Highland</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7948/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7948/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/highland" rel="tag" title="Highland">Read more<span class="element-invisible"> about Highland</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.652726,
+40.068514
+]
+},
+properties: {
+name: "Southtown Center",
+description: "<article class="node-7949 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/southtown-center">Southtown Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7949/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7949/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/southtown-center" rel="tag" title="Southtown Center">Read more<span class="element-invisible"> about Southtown Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-83.342485,
+40.231901
+]
+},
+properties: {
+name: "Coleman&#039;s Crossing",
+description: "<article class="node-7950 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/colemans-crossing">Coleman&#039;s Crossing</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7950/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7950/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/colemans-crossing" rel="tag" title="Coleman&#039;s Crossing">Read more<span class="element-invisible"> about Coleman&#039;s Crossing</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-86.091271,
+42.810883
+]
+},
+properties: {
+name: "Holland",
+description: "<article class="node-7951 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/holland">Holland</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7951/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7951/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/holland" rel="tag" title="Holland">Read more<span class="element-invisible"> about Holland</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-83.082612,
+40.582943
+]
+},
+properties: {
+name: "Marion",
+description: "<article class="node-7952 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/marion">Marion</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7952/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7952/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/marion" rel="tag" title="Marion">Read more<span class="element-invisible"> about Marion</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.008059,
+41.132564
+]
+},
+properties: {
+name: "Maysville Point Shopping Center",
+description: "<article class="node-7953 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/maysville-point-shopping-center">Maysville Point Shopping Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7953/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7953/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/maysville-point-shopping-center" rel="tag" title="Maysville Point Shopping Center">Read more<span class="element-invisible"> about Maysville Point Shopping Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-82.456034,
+43.026862
+]
+},
+properties: {
+name: "Fort Gratiot",
+description: "<article class="node-7954 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/fort-gratiot">Fort Gratiot</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7954/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7954/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/fort-gratiot" rel="tag" title="Fort Gratiot">Read more<span class="element-invisible"> about Fort Gratiot</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.177771,
+42.265004
+]
+},
+properties: {
+name: "Battle Creek",
+description: "<article class="node-7955 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/battle-creek">Battle Creek</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7955/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7955/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/battle-creek" rel="tag" title="Battle Creek">Read more<span class="element-invisible"> about Battle Creek</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-83.643698,
+42.938813
+]
+},
+properties: {
+name: "Heritage Park Shopping Center",
+description: "<article class="node-7956 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/heritage-park-shopping-center">Heritage Park Shopping Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7956/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7956/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/heritage-park-shopping-center" rel="tag" title="Heritage Park Shopping Center">Read more<span class="element-invisible"> about Heritage Park Shopping Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-84.043104,
+41.876816
+]
+},
+properties: {
+name: "Adrian Mall",
+description: "<article class="node-7957 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/adrian-mall">Adrian Mall</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7957/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7957/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/adrian-mall" rel="tag" title="Adrian Mall">Read more<span class="element-invisible"> about Adrian Mall</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.634346,
+43.019762
+]
+},
+properties: {
+name: "Grand Rapids",
+description: "<article class="node-7958 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/grand-rapids-0">Grand Rapids</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7958/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7958/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/grand-rapids-0" rel="tag" title="Grand Rapids">Read more<span class="element-invisible"> about Grand Rapids</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-83.32337,
+43.043358
+]
+},
+properties: {
+name: "South Branch Shopping Center",
+description: "<article class="node-7959 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/south-branch-shopping-center">South Branch Shopping Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7959/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7959/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/south-branch-shopping-center" rel="tag" title="South Branch Shopping Center">Read more<span class="element-invisible"> about South Branch Shopping Center</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-81.693468,
+41.039193
+]
+},
+properties: {
+name: "Wadsworth Crossings",
+description: "<article class="node-7960 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/wadsworth-crossings">Wadsworth Crossings</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7960/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7960/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/wadsworth-crossings" rel="tag" title="Wadsworth Crossings">Read more<span class="element-invisible"> about Wadsworth Crossings</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.691026,
+42.915405
+]
+},
+properties: {
+name: "Wyoming",
+description: "<article class="node-7961 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/wyoming">Wyoming</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7961/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7961/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/wyoming" rel="tag" title="Wyoming">Read more<span class="element-invisible"> about Wyoming</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.589486,
+42.226323
+]
+},
+properties: {
+name: "Portage",
+description: "<article class="node-7962 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/portage">Portage</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7962/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7962/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/portage" rel="tag" title="Portage">Read more<span class="element-invisible"> about Portage</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-82.663249,
+41.40333
+]
+},
+properties: {
+name: "Crossings of Sandusky",
+description: "<article class="node-7963 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/crossings-sandusky">Crossings of Sandusky</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7963/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7963/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/crossings-sandusky" rel="tag" title="Crossings of Sandusky">Read more<span class="element-invisible"> about Crossings of Sandusky</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-84.61965,
+42.741022
+]
+},
+properties: {
+name: "Lansing",
+description: "<article class="node-7964 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/lansing">Lansing</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7964/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7964/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/lansing" rel="tag" title="Lansing">Read more<span class="element-invisible"> about Lansing</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-84.433692,
+42.269198
+]
+},
+properties: {
+name: "Jackson",
+description: "<article class="node-7965 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/jackson">Jackson</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7965/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7965/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/jackson" rel="tag" title="Jackson">Read more<span class="element-invisible"> about Jackson</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-93.67403,
+41.625988
+]
+},
+properties: {
+name: "Merle Hay Mall",
+description: "<article class="node-7966 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/des-moines-hunt-fish">Des Moines + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7966/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7966/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/ekastelz" title="View user profile." class="username">ekastelz</a></span> on <span class="list-date"><time>June 30, 2013</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/des-moines-hunt-fish" rel="tag" title="Des Moines + HUNT / FISH">Read more<span class="element-invisible"> about Des Moines + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-80.90826,
+40.086725
+]
+},
+properties: {
+name: "Ohio Valley Mall",
+description: "<article class="node-7967 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/st-clairsville-hunt-fish">St. Clairsville + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7967/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7967/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/ekastelz" title="View user profile." class="username">ekastelz</a></span> on <span class="list-date"><time>August 31, 2013</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/st-clairsville-hunt-fish" rel="tag" title="St. Clairsville + HUNT / FISH">Read more<span class="element-invisible"> about St. Clairsville + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-91.201255,
+43.867986
+]
+},
+properties: {
+name: "Crossroads Center",
+description: "<article class="node-7968 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/crossroads-center-hunt-fish">Crossroads Center + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7968/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7968/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/crossroads-center-hunt-fish" rel="tag" title="Crossroads Center + HUNT / FISH">Read more<span class="element-invisible"> about Crossroads Center + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-92.41741,
+41.023872
+]
+},
+properties: {
+name: "Quincy Place Mall",
+description: "<article class="node-7969 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/quincy-place-mall-hunt-fish">Quincy Place Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7969/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7969/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/ekastelz" title="View user profile." class="username">ekastelz</a></span> on <span class="list-date"><time>August 31, 2013</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/quincy-place-mall-hunt-fish" rel="tag" title="Quincy Place Mall + HUNT / FISH">Read more<span class="element-invisible"> about Quincy Place Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-85.136425,
+41.117674
+]
+},
+properties: {
+name: "Glenbrook Mall",
+description: "<article class="node-7970 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/glenbrook-square-commons">Glenbrook Square Commons</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7970/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7970/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/glenbrook-square-commons" rel="tag" title="Glenbrook Square Commons">Read more<span class="element-invisible"> about Glenbrook Square Commons</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-87.762745,
+43.716828
+]
+},
+properties: {
+name: "Kohler (Sheboygan)",
+description: "<article class="node-7971 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/kohler-sheboygan-hunt-fish">Kohler (Sheboygan) + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7971/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7971/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/kohler-sheboygan-hunt-fish" rel="tag" title="Kohler (Sheboygan) + HUNT / FISH">Read more<span class="element-invisible"> about Kohler (Sheboygan) + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-88.24322,
+40.114931
+]
+},
+properties: {
+name: "Market Place Mall",
+description: "<article class="node-7972 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/market-place-mall-hunt-fish">Market Place Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7972/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7972/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/market-place-mall-hunt-fish" rel="tag" title="Market Place Mall + HUNT / FISH">Read more<span class="element-invisible"> about Market Place Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-86.87902,
+41.707539
+]
+},
+properties: {
+name: "Michigan City Plaza",
+description: "<article class="node-7973 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/michigan-city-plaza-hunt-fish">Michigan City Plaza + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7973/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7973/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/michigan-city-plaza-hunt-fish" rel="tag" title="Michigan City Plaza + HUNT / FISH">Read more<span class="element-invisible"> about Michigan City Plaza + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-83.851728,
+39.951286
+]
+},
+properties: {
+name: "Upper Valley Mall",
+description: "<article class="node-7974 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/upper-valley-mall-hunt-fish">Upper Valley Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7974/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7974/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/upper-valley-mall-hunt-fish" rel="tag" title="Upper Valley Mall + HUNT / FISH">Read more<span class="element-invisible"> about Upper Valley Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-82.00492,
+39.949377
+]
+},
+properties: {
+name: "NorthPointe Center",
+description: "<article class="node-7975 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/northpointe-center-hunt-fish">NorthPointe Center + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7975/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7975/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/northpointe-center-hunt-fish" rel="tag" title="NorthPointe Center + HUNT / FISH">Read more<span class="element-invisible"> about NorthPointe Center + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-81.943552,
+40.845109
+]
+},
+properties: {
+name: "Wooster Place",
+description: "<article class="node-7976 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/wooster-place-hunt-fish">Wooster Place + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7976/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7976/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/wooster-place-hunt-fish" rel="tag" title="Wooster Place + HUNT / FISH">Read more<span class="element-invisible"> about Wooster Place + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-87.452786,
+46.551182
+]
+},
+properties: {
+name: "Westwood Mall",
+description: "<article class="node-7977 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/westwood-mall-hunt-fish">Westwood Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7977/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7977/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/westwood-mall-hunt-fish" rel="tag" title="Westwood Mall + HUNT / FISH">Read more<span class="element-invisible"> about Westwood Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-89.54493,
+40.683387
+]
+},
+properties: {
+name: "Town Center II",
+description: "<article class="node-7978 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/town-center-ii-hunt-fish">Town Center II +HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7978/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7978/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/ekastelz" title="View user profile." class="username">ekastelz</a></span> on <span class="list-date"><time>November 30, 2013</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/town-center-ii-hunt-fish" rel="tag" title="Town Center II +HUNT / FISH">Read more<span class="element-invisible"> about Town Center II +HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-84.76748,
+43.588918
+]
+},
+properties: {
+name: "Campus Mall",
+description: "<article class="node-7979 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/campus-mall-hunt-fish">Campus Mall + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7979/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7979/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/kaitlin" title="View user profile." class="username">kaitlin</a></span> on <span class="list-date"><time>October 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/campus-mall-hunt-fish" rel="tag" title="Campus Mall + HUNT / FISH">Read more<span class="element-invisible"> about Campus Mall + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-82.99938,
+42.598734
+]
+},
+properties: {
+name: "Lakeside Mall",
+description: "<article class="node-7980 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/sterling-heights-hunt-fish">Sterling Heights + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7980/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7980/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/ekastelz" title="View user profile." class="username">ekastelz</a></span> on <span class="list-date"><time>November 30, 2014</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/sterling-heights-hunt-fish" rel="tag" title="Sterling Heights + HUNT / FISH">Read more<span class="element-invisible"> about Sterling Heights + HUNT / FISH</span></a></li> </ul> </article> "
+}
+},
+{
+type: "Feature",
+geometry: {
+type: "Point",
+coordinates: [
+-81.19473,
+41.574171
+]
+},
+properties: {
+name: "Chardon Village Plaza",
+description: "<article class="node-7981 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/chardon-hunt-fish">Chardon + HUNT / FISH</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7981/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7981/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/ekastelz" title="View user profile." class="username">ekastelz</a></span> on <span class="list-date"><time>November 30, 2014</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/chardon-hunt-fish" rel="tag" title="Chardon + HUNT / FISH">Read more<span class="element-invisible"> about Chardon + HUNT / FISH</span></a></li> </ul> </article> "
+}
+}
+]
+}

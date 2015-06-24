@@ -8,8 +8,10 @@
     preloader: false,
     fixedContentPos: 'auto',
     closeBtnInside: false,
+    // https://github.com/dimsemenov/Magnific-Popup/issues/556
+    closeMarkup: '<button title="%title%" type="button" class="mfp-close"></button>',
     callbacks: {
-      // Add custom class from target element data-modal-class attribute 
+      // Add custom class from target element data-modal-class attribute
       // <a href="#some-inline-div" class="mfp-inline-init" data-modal-class="mfp-login">Login</a>
       beforeOpen: function() {
           var $triggerEl = $(this.st.el),

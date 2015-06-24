@@ -1,0 +1,8 @@
+name = Panels style settings for background image
+description = Includes settings to place background images on Panel panes.
+package = "Rapid Development Group"
+version = 7.x-1.0
+core = 7.x
+
+dependencies[] = ctools
+dependencies[] = panels

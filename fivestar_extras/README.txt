@@ -1,0 +1,1 @@
+Custom stars for use with Fivestar module. Includes source file to adjust icon as needed. Note: Fivestar module css is removed and replaced competely by this module's css. It can be added back in but some css work will have to be done.

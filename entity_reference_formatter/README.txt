@@ -1,0 +1,1 @@
+A field formatter for entity reference fields to prepend / append strings to the link. So, instead of linking to "node/3" in a teaser, it would link to "new-route/3" or "3/new-route". This was used in conjuction with a View & contextual filters.

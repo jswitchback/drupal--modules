@@ -1,0 +1,7 @@
+name = Custom Panes
+description = Custom panes including Twitter Timeline.
+package = "Rapid Development Group"
+version = 7.x-1.0
+core = 7.x
+
+dependencies[] = ctools

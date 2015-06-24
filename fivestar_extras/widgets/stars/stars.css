@@ -1,0 +1,181 @@
+
+
+/* Static View-only Star Version */
+
+
+.fivestar-stars div.fivestar-widget-static .star span {
+  background: url(stars.svg) no-repeat 0 0;
+}
+
+.no-svg .fivestar-stars div.fivestar-widget-static .star span {
+  background-image: url(stars.png);
+}
+
+.fivestar-stars div.fivestar-widget-static .star span.on {
+  background: url(stars.svg) no-repeat 0 -21px;
+}
+
+.fivestar-stars div.fivestar-widget-static .star span.off {
+  background: url(stars.svg) no-repeat 0 0;
+}
+
+
+/* Javascript Star Version */
+
+
+.fivestar-stars div.fivestar-widget .star a {
+  background: url(stars.svg) no-repeat 0 0;
+}
+
+.no-svg .fivestar-stars div.fivestar-widget .star span {
+  background-image: url(stars.png);
+}
+
+.fivestar-stars div.fivestar-widget .star.on a {
+  background: url(stars.svg) no-repeat 0 -21px;
+}
+
+.fivestar-stars div.fivestar-widget .cancel,
+.fivestar-stars div.fivestar-widget .cancel a {
+  background: url(stars.svg) no-repeat 0 -79px;
+}
+
+.fivestar-stars div.fivestar-widget div.hover a,
+.fivestar-stars div.fivestar-widget .star.on.hover a,
+.fivestar-stars div.rating div a:hover {
+  background: url(stars.svg) no-repeat 0 -41px;
+}
+
+/* Ajax Styles
+   This gets appended to the .form-item-vote div:
+   <div class="ajax-progress ajax-progress-throbber"><div class="throbber">&nbsp;</div><div class="message">Please wait...</div></div>
+*/
+
+.form-item-vote {
+  position: relative;
+}
+
+.form-item-vote .ajax-progress-throbber {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.form-item-vote .ajax-progress .throbber {
+/*  background: transparent url(../../misc/throbber-active.gif) no-repeat 0px center;
+  height: 15px;*/
+  float: none;
+  margin: 0 auto;
+/*  width: 15px;
+*/}
+
+.form-item-vote .ajax-progress .message {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* REMOVED MODULE CSS. ADDED CUSTOM CSS PER MCSPORTS WIDGET BELOW. Original found in /fivestar/css/fivestar.css */
+
+
+/* Plain HTML Version */
+form.fivestar-widget {
+  clear: both;
+  display: block;
+}
+form.fivestar-widget select,
+form.fivestar-widget input {
+  margin: 0;
+}
+
+/* Combo Static and Rate Widget */
+.fivestar-combo-stars .fivestar-static-form-item {
+  float: left; /* RTL */
+  margin-right: 40px; /* RTL */
+  margin-left: 40px; /* RTL */
+}
+.fivestar-combo-stars .fivestar-static-item {
+  float: left; /* RTL */
+  margin-right: 40px; /* RTL */
+}
+
+.fivestar-combo-stars .fivestar-form-item {
+  float: left; /* RTL */
+}
+
+/* Fivestar form items */
+.fivestar-static-form-item .form-item,
+.fivestar-form-item .form-item {
+  margin: 0;
+}
+
+/* Static View-only Star Version */
+div.fivestar-widget-static {
+  display: block;
+}
+
+div.fivestar-widget-static br {
+  clear: left; /* RTL */
+}
+
+div.fivestar-widget-static .star span.on {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+div.fivestar-widget-static .star span.off {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Javascript Star Version */
+div.fivestar-widget {
+  display: block;
+}
+
+div.fivestar-widget .cancel,
+div.fivestar-widget .star,
+div.fivestar-widget-static .star {
+  float: left; /* RTL */
+  width: 19px;
+  height: 17px;
+}
+
+div.fivestar-widget .cancel a,
+div.fivestar-widget .star a,
+div.fivestar-widget-static .star span {
+  display: block;
+  text-decoration: none;
+  border:0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  background-color: transparent;
+}
+
+div.fivestar-widget .cancel a,
+div.fivestar-widget .star a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+form.fivestar-widget div.description {
+  margin-bottom: 0;
+}
+
+html.js .fivestar-submit {
+  display: none;
+}
+
+.fivestar-combo-stars .form-type-fivestar .form-item {
+  float: left;
+}

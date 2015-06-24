@@ -1,3 +1,11 @@
+/* Magnific Popup
+  https://github.com/dimsemenov/Magnific-Popup/issues/556
+*/
+
+.mfp-close:before {
+  content: '×';
+}
+
 /* Module classes */
 
 .image-popup {

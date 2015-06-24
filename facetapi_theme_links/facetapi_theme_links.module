@@ -1,0 +1,60 @@
+<?php
+
+// function mc_votingapi_theme_registry_alter(&$theme_registry) {
+//   dpm($theme_registry);
+//   // Kill the next/previous forum topic navigation links.
+//   // foreach ($theme_registry ['forum_topic_navigation']['preprocess functions'] as $key => $value) {
+//   //   if ($value == 'template_preprocess_forum_topic_navigation') {
+//   //     unset($theme_registry ['forum_topic_navigation']['preprocess functions'][$key]);
+//   //   }
+//   // }
+//     $path = drupal_get_path('module', 'base');
+//   // Override the content type summary info.
+//   if (isset($theme_registry['node_admin_overview'])) {
+//     // This is how it is done in hook_theme(), but it does not work here.
+//     // $theme_registry['node_admin_overview']['file'] = 'node_admin_overview.inc';
+//     // $theme_registry['node_admin_overview']['path'] = $path . '/theme';
+
+//     $theme_registry['node_admin_overview']['includes'][] = $path . '/theme/node_admin_overview.inc';
+//     $theme_registry['node_admin_overview']['function'] = 'base_node_admin_overview';
+//   }
+// }
+
+/**
+ * Implements hook_theme().
+ */
+function facetapi_theme_links_theme() {
+  return array(
+    'facetapi_theme_links_count' => array(
+      'variables' => array('count' => NULL),
+      'file' => 'facetapi_theme_links.theme.inc',
+    ),
+    'facetapi_theme_links_link_active' => array(
+      'variables' => array('count' => NULL),
+      'file' => 'facetapi_theme_links.theme.inc',
+    ),
+    'facetapi_theme_links_link_inactive' => array(
+      'variables' => array('count' => NULL),
+      'file' => 'facetapi_theme_links.theme.inc',
+    ),
+  );
+}
+
+function facetapi_theme_links_theme_registry_alter(&$theme_registry) {
+  $path = drupal_get_path('module', 'facetapi_theme_links');
+
+  // Alter theme functions of contributed modules.
+  if (isset($theme_registry['facetapi_count'])) {
+    $theme_registry['facetapi_count']['includes'][] = $path . '/facetapi_theme_links.theme.inc';
+    $theme_registry['facetapi_count']['function'] = 'theme_facetapi_theme_links_count';
+  }
+  if (isset($theme_registry['facetapi_link_active'])) {
+    $theme_registry['facetapi_link_active']['includes'][] = $path . '/facetapi_theme_links.theme.inc';
+    $theme_registry['facetapi_link_active']['function'] = 'theme_facetapi_theme_links_link_inactive';
+  }
+  if (isset($theme_registry['facetapi_link_inactive'])) {
+    $theme_registry['facetapi_link_inactive']['includes'][] = $path . '/facetapi_theme_links.theme.inc';
+    $theme_registry['facetapi_link_inactive']['function'] = 'theme_facetapi_theme_links_link_inactive';
+  }
+  //dpm($theme_registry);
+}

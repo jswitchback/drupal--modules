@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implementation of hook_fivestar_widgets().
+ *
+ * This hook allows other modules to create additional custom widgets for
+ * the fivestar module.
+ *
+ * @return array
+ *   An array of key => value pairs suitable for inclusion as the #options in a
+ *   select or radios form element. Each key must be the location of a css
+ *   file for a fivestar widget. Each value should be the name of the widget.
+ *
+ * @see fivestar_fivestar_widgets()
+ */
+function fivestar_extras_fivestar_widgets() {
+
+  $widgets_directory = drupal_get_path('module', 'fivestar_extras') . '/widgets';
+  $widgets = array(
+    $widgets_directory . '/stars/stars.css' => 'Stars', // name becomes css class suffix
+  );
+  return $widgets;
+}
+
+// Remove Fivstar default css, because we're adding our own for this custom widget.
+// Note!!: This breaks other widgets.
+function fivestar_extras_css_alter(&$css) {
+  if (isset($css[drupal_get_path('module', 'fivestar') . '/css/fivestar.css'])) {
+    unset($css[drupal_get_path('module', 'fivestar') . '/css/fivestar.css']);
+  }
+}

@@ -1,0 +1,5 @@
+name = Fivestar Extras
+description = Inlcudes custom star widget
+package = Voting
+core = 7.x
+dependencies[] = votingapi

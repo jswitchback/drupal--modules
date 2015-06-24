@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * adds a formatter for file fields 
+ * adds a formatter for file fields
  *
  */
 
@@ -12,16 +12,14 @@ function entity_reference_formatter_field_formatter_info() {
   return array(
     'entity_reference_formatter' => array( //Machine name of the formatter
       'label' => t('Custom Entity Reference Link'),
-      'field types' => array('entityreference'), 
-      'settings'  => array( 
-        'url_prefix' => '', 
+      'field types' => array('entityreference'),
+      'settings'  => array(
+        'url_prefix' => '',
         'url_suffix' => '',
       ),
     ),
   );
 }
-
-// simple_file_formatter
 
 /**
  * Implements hook_field_formatter_settings_form().
@@ -96,7 +94,7 @@ function entity_reference_formatter_field_formatter_view($entity_type, $entity, 
 
     $link_options = array(
       'attributes'  => array(
-        'title' =>  $title, 
+        'title' =>  $title,
         // 'class' => array('tag tag-blog'),
         ),
       'html' => TRUE, // This tells Drupal that we're sending HTML, not plain text, otherwise it would encode it
