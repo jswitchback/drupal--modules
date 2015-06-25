@@ -29,3 +29,73 @@ function fivestar_extras_css_alter(&$css) {
     unset($css[drupal_get_path('module', 'fivestar') . '/css/fivestar.css']);
   }
 }
+
+function fivestar_extras_theme_registry_alter(&$theme_registry) {
+  if (!empty($theme_registry['fivestar_static'])) {
+    $theme_registry['fivestar_static']['function'] = 'fivestar_extras_fivestar_static';
+  }
+}
+
+/**
+ * Display a plain HTML view-only version of the widget with a specified rating.
+ *
+ * @param $rating
+ *   The desired rating to display out of 100 (i.e. 80 is 4 out of 5 stars).
+ * @param $stars
+ *   The total number of stars this rating is out of.
+ * @param $tag
+ *   Allows multiple ratings per node.
+ * @return
+ *   A themed HTML string representing the star widget.
+ */
+
+/* Overriding to add class when there is a partial star showing. Original theme fucntion found in fivestar.theme.inc */
+
+function fivestar_extras_fivestar_static($variables) {
+  // dpm($variables);
+  $rating  = $variables['rating'];
+  $stars = $variables['stars'];
+  $tag = $variables['tag'];
+  $widget = $variables['widget'];
+  if ($widget['name'] != 'default') {
+    // $path = drupal_get_path('module', 'fivestar'); // Removing this does not remove css, so it removed in css_alter above
+    // drupal_add_css($path . '/css/fivestar.css');
+    drupal_add_css($widget['css']);
+  }
+  $output = '<div class="fivestar-' . $widget['name'] . '">';
+  $output .= '<div class="fivestar-widget-static fivestar-widget-static-' . $tag . ' fivestar-widget-static-' . $stars . ' clearfix">';
+  if (empty($stars)) {
+    $stars = 5;
+  }
+  $numeric_rating = $rating/(100/$stars);
+  for ($n=1; $n <= $stars; $n++) {
+    $star_attributes = array();
+    $star_element = '';
+    $star_value = ceil((100/$stars) * $n);
+    $prev_star_value = ceil((100/$stars) * ($n-1));
+    $zebra = ($n % 2 == 0) ? 'even' : 'odd';
+    $first = $n == 1 ? ' star-first' : '';
+    $last = $n == $stars ? ' star-last' : '';
+    if ($rating < $star_value && $rating > $prev_star_value) {
+      $percent = (($rating - $prev_star_value) / ($star_value - $prev_star_value)) * 100;
+      $star_element .= '<span class="on" style="width: ' . $percent . '%">';
+      $star_attributes['class'][] = 'star-partial';
+    }
+    elseif ($rating >= $star_value) {
+      $star_element .= '<span class="on">';
+    }
+    else {
+      $star_element .= '<span class="off">';
+    }
+    if ($n == 1)$star_element .= $numeric_rating;
+
+    $star_attributes['class'][] = 'star';
+    $star_attributes['class'][] = 'star-' . $n;
+    $star_attributes['class'][] = 'star-' . $zebra . $first . $last;
+
+    $star_element = '<div ' . drupal_attributes($star_attributes) .'>' . $star_element . '</span></div>';
+    $output .= $star_element;
+  }
+  $output .= '</div></div>';
+  return $output;
+}

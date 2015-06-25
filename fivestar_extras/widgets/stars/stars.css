@@ -4,7 +4,10 @@
 
 
 .fivestar-stars div.fivestar-widget-static .star span {
-  background: url(stars.svg) no-repeat 0 0;
+  background-image: url(stars.svg);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-color: transparent;
 }
 
 .no-svg .fivestar-stars div.fivestar-widget-static .star span {
@@ -12,11 +15,22 @@
 }
 
 .fivestar-stars div.fivestar-widget-static .star span.on {
-  background: url(stars.svg) no-repeat 0 -21px;
+  background-position: 0 -21px;
 }
 
 .fivestar-stars div.fivestar-widget-static .star span.off {
-  background: url(stars.svg) no-repeat 0 0;
+  background-position: 0 0;
+}
+
+.fivestar-stars div.fivestar-widget-static .star-partial {
+  background-image: url(stars.svg);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.no-svg .fivestar-stars div.fivestar-widget-static .star-partial {
+  background-image: url(stars.png);
 }
 
 
@@ -24,7 +38,10 @@
 
 
 .fivestar-stars div.fivestar-widget .star a {
-  background: url(stars.svg) no-repeat 0 0;
+  background-image: url(stars.svg);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-color: transparent;
 }
 
 .no-svg .fivestar-stars div.fivestar-widget .star span {
@@ -32,18 +49,18 @@
 }
 
 .fivestar-stars div.fivestar-widget .star.on a {
-  background: url(stars.svg) no-repeat 0 -21px;
+  background-position: 0 -21px;
 }
 
 .fivestar-stars div.fivestar-widget .cancel,
 .fivestar-stars div.fivestar-widget .cancel a {
-  background: url(stars.svg) no-repeat 0 -79px;
+  background-position: 0 -79px;
 }
 
 .fivestar-stars div.fivestar-widget div.hover a,
 .fivestar-stars div.fivestar-widget .star.on.hover a,
 .fivestar-stars div.rating div a:hover {
-  background: url(stars.svg) no-repeat 0 -41px;
+  background-position: 0 -41px;
 }
 
 /* Ajax Styles
