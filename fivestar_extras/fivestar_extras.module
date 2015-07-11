@@ -49,7 +49,7 @@ function fivestar_extras_theme_registry_alter(&$theme_registry) {
  *   A themed HTML string representing the star widget.
  */
 
-/* Overriding to add class when there is a partial star showing. Original theme fucntion found in fivestar.theme.inc */
+/* Overriding to add class when there is a partial star showing. Original theme function found in fivestar.theme.inc */
 
 function fivestar_extras_fivestar_static($variables) {
   // dpm($variables);
