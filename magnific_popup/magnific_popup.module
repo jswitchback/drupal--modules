@@ -16,7 +16,7 @@ function magnific_popup_library() {
   $module_path = drupal_get_path('module', 'magnific_popup');
 
   if (empty($magnific_library_path)) {
-    drupal_set_message(t('Please install the Magnific Popup JS library in sites/.../libraries/magnific-popup/.'), 'error');
+    drupal_set_message(t('Please install the Magnific Popup JS library in sites/all/libraries/magnific-popup/. Javascript at /dist/jquery.magnific-popup.js. CSS at /dist/magnific-popup.css', 'error');
     return array();
   }
 
@@ -25,7 +25,7 @@ function magnific_popup_library() {
     'website' => 'http://dimsemenov.com/plugins/magnific-popup/',
     'version' => '1',
     'js' => array(
-      $magnific_library_path . "/dist/jquery.magnific-popup.min.js" => array('type' => 'file','weight' => 950),
+      $magnific_library_path . "/dist/jquery.magnific-popup.js" => array('type' => 'file','weight' => 950),
     ),
     'css' => array(
       $magnific_library_path . "/dist/magnific-popup.css" => array('type' => 'file'),
@@ -145,7 +145,7 @@ function magnific_popup_field_formatter_settings_summary($field, $instance, $vie
     $summary[] = t('Original image');
   }
 
-  if (isset($image_styles[$settings['image_link_style']])) {
+  if (!empty($image_styles[$settings['image_link_style']])) {
     $summary[] = t('Linked to image style: @style', array('@style' => $image_styles[$settings['image_link_style']]));
   }
   else {
