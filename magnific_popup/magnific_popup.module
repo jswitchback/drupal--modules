@@ -60,7 +60,7 @@ function magnific_popup_library() {
 function magnific_popup_field_formatter_info() {
   $formatters = array(
     'rdg_magnific_popup' => array(
-      'label' => t('Image link to image style'),
+      'label' => t('Image linked to image'),
       'field types' => array('image'),
       'settings' => array(
         'image_style' => '',
