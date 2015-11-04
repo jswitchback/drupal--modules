@@ -32,7 +32,7 @@ And even more specific:
 
 search-result--svm--user--ROLE.tpl.php
 Example: search-result--svm--user--authenticated-user.tpl.php
-search-view-mode--node--NODETYPE.tpl.php
+search-result--svm--node--NODETYPE.tpl.php
 Example: search-result--svm--node--basic-page.tpl.php
 
 The above templates affect wrapping markup. For greater <em>$content</em> variable control, preprocess the <em>search_display</em> view mode or add a template file. The following template suggestions have been added to further customize the search output.

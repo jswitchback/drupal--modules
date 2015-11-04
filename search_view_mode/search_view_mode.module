@@ -57,8 +57,8 @@ function search_view_mode_preprocess_node(&$variables) {
           '!datetime' => '<span class="date"><time>' . format_date($variables['created'], 'short') . '</span>',
     ));
 
-    $variables['theme_hook_suggestions'][] = 'node__svm__' . $view_mode;
-    $variables['theme_hook_suggestions'][] = 'node__svm__' . $view_mode . '__' . $variables['type'];
+    $variables['theme_hook_suggestions'][] = 'node__svm__';
+    $variables['theme_hook_suggestions'][] = 'node__svm__' . $variables['type'];
   }
 }
 
@@ -149,7 +149,7 @@ function search_view_mode_preprocess_search_results(&$variables) {
 
     if ($is_custom_view && $view_mode_settings['search_display']['custom_settings'] === TRUE) {
       $variables['search_results'] .= theme('search_result_svm', array('result' => $result, 'module' => $module));
-      $variables['theme_hook_suggestions'][] = 'search__results__svm__' . $variables['module'];
+      $variables['theme_hook_suggestions'][] = 'search_results__svm__' . $variables['module'];
     } else {
       $variables['search_results'] .= theme('search_result', array('result' => $result, 'module' => $module));
     }
@@ -203,26 +203,17 @@ function search_view_mode_preprocess_search_result_svm(&$variables) {
     $info = array_merge($info, $result['extra']);
   }
 
-  switch ($module) {
-    case 'node':
-      $bundle = $result['node']->type; // ie node type to get view mode settings for (basic_page, article, etc.)
-      break;
-    case 'user':
-      $bundle = 'user';
-      break;
-  }
-
   $variables['theme_hook_suggestions'][] = 'search_result__svm';
   $variables['theme_hook_suggestions'][] = 'search_result__svm__' . $variables['module'];
 
   // $variables['snippet'] = isset($result['snippet']) ? $result['snippet'] : '';
   // Rendering  content variable here for speedyness.
-  // Override node & user templates to effect the $content variable before it's rendered to a search result. (ie preprocess or ee template suggestions above)
-  switch ($variables['module']) {
+  // Override node & user templates to effect the $content variable before it's rendered to a search result. (ie preprocess or template suggestions above)
+  switch ($module) {
     case 'node':
       $content = node_view($result['node'], 'search_display');
       $variables['snippet'] = render($content);
-      $variables['theme_hook_suggestions'][] = 'search_result__svm__' . $variables['module'] . '__' . $result['node']->type;
+      $variables['theme_hook_suggestions'][] = 'search_result__svm__node__' . $result['node']->type;
       break;
 
     case 'user':
@@ -240,7 +231,7 @@ function search_view_mode_preprocess_search_result_svm(&$variables) {
       // Add role template suggestions
       foreach ($user->roles as $role) {
         $role = str_replace(' ', '_', $role);
-        $variables['theme_hook_suggestions'][] = 'search_result__svm__' . $variables['module'] . '__' . $role;
+        $variables['theme_hook_suggestions'][] = 'search_result__svm__user__' . $role;
       }
       break;
   }
