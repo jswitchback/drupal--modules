@@ -101,7 +101,7 @@ function search_view_mode_theme() {
     'search_result_svm' => array(
       'variables' => array('result' => NULL, 'module' => NULL),
       'template' => 'search-result--svm',
-      'path' => drupal_get_path('module', 'search_view_mode') . '/theme',
+      'path' => drupal_get_path('module', 'search_view_mode') . '/templates',
     ),
   );
 }
