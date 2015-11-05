@@ -54,12 +54,6 @@ function search_view_mode_theme() {
       'template' => 'search-result--svm',
       'path' => drupal_get_path('module', 'search_view_mode') . '/theme',
     ),
-    'search_result_svm_node' => array(
-      'variables' => array('result' => NULL, 'module' => NULL),
-      // 'file' => 'search.pages.inc',
-      'template' => 'search-result--svm--node',
-      'path' => drupal_get_path('module', 'search_view_mode') . '/theme',
-    ),
     'node__svm' => array(
       'render element' => 'elements',
       'template' => 'node--svm',
