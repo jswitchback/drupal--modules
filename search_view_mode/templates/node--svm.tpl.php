@@ -84,12 +84,6 @@
   <?php print render($title_prefix); ?>
   <?php print render($title_suffix); ?>
 
-  <?php if ($display_submitted): ?>
-    <p class="submitted">
-      <?php print $submitted; ?>
-    </p>
-  <?php endif; ?>
-
   <div class="content"<?php print $content_attributes; ?>>
     <?php print render($content); ?>
   </div>
