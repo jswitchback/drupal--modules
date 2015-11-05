@@ -21,24 +21,53 @@ function search_view_mode_entity_info_alter(&$entity_info) {
 }
 
 
+// Add all template files in a folder. Deprecated for hook_theme...
 /**
  * Implements hook_theme_registry_alter().
  *
  * Getting Drupal to recognize template files.
  * https://www.drupal.org/node/715160
+ *
  */
-function search_view_mode_theme_registry_alter(&$theme_registry) {
-    $module_path = drupal_get_path('module', 'search_view_mode');
-    $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
+// function search_view_mode_theme_registry_alter(&$theme_registry) {
+//     $module_path = drupal_get_path('module', 'search_view_mode');
+//     $template_file_objects = drupal_find_theme_templates($theme_registry, '.tpl.php', $module_path);
 
-    foreach ($template_file_objects as $key => $template_file_object) {
-        if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
-            $theme_registry[$key]['theme path'] = $module_path;
-            $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
-            $theme_registry[$key]['type'] = 'module';
-        }
-    }
+//     foreach ($template_file_objects as $key => $template_file_object) {
+//         if (!isset($theme_registry[$key]['theme path']) || !preg_match('#/themes/#', $theme_registry[$key]['theme path'])) {
+//             $theme_registry[$key]['theme path'] = $module_path;
+//             $theme_registry[$key] = array_merge($theme_registry[$key], $template_file_object);
+//             $theme_registry[$key]['type'] = 'module';
+//         }
+//     }
+// }
+
+
+/**
+ * Implements hook_theme().
+ */
+function search_view_mode_theme() {
+  return array(
+    'search_result_svm' => array(
+      'variables' => array('result' => NULL, 'module' => NULL),
+      // 'file' => 'search.pages.inc',
+      'template' => 'search-result--svm',
+      'path' => drupal_get_path('module', 'search_view_mode') . '/theme',
+    ),
+    'search_result_svm_node' => array(
+      'variables' => array('result' => NULL, 'module' => NULL),
+      // 'file' => 'search.pages.inc',
+      'template' => 'search-result--svm--node',
+      'path' => drupal_get_path('module', 'search_view_mode') . '/theme',
+    ),
+    'node__svm' => array(
+      'render element' => 'elements',
+      'template' => 'node--svm',
+      'path' => drupal_get_path('module', 'search_view_mode') . '/theme',
+    ),
+  );
 }
+
 
 
 /**
@@ -90,20 +119,6 @@ function search_view_mode_preprocess_user_profile(&$variables) {
       $variables['theme_hook_suggestions'][] = 'user_profile__svm__' . $variables['view_mode'] . '__' . str_replace(' ', '_', $role);;
     }
   }
-}
-
-
-/**
- * Implements hook_theme().
- */
-function search_view_mode_theme() {
-  return array(
-    'search_result_svm' => array(
-      'variables' => array('result' => NULL, 'module' => NULL),
-      'template' => 'search-result--svm',
-      'path' => drupal_get_path('module', 'search_view_mode') . '/templates',
-    ),
-  );
 }
 
 
