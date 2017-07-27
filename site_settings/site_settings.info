@@ -1,0 +1,10 @@
+name = Site settings
+description = Shared configuration across projects. Administration form and permissions.
+package = Custom
+version = VERSION
+core = 7.x
+
+
+
+
+

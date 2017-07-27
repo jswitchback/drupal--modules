@@ -1,0 +1,7 @@
+name: Additional Menu Link Attributes
+description: Creates new and exposes existing attributes for menu links
+core: 8.x
+type: module
+package: Custom
+dependencies:
+  - link_attributes

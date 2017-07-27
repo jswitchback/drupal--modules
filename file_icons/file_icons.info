@@ -1,0 +1,4 @@
+name = File icons
+description = Custom file icons.
+package = Custom
+core = 7.x

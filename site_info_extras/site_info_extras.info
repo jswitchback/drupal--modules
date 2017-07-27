@@ -1,0 +1,4 @@
+name = Site Information Forms Extras
+description = Custom form fields on the <a href="/admin/config/system/site-information">Site Information</a> form including social media links.
+package = Custom
+core = 7.x

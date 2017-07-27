@@ -1,0 +1,177 @@
+<?php
+
+
+// function site_info_extras_menu() {
+//   $items['admin/config/system/site-information'] = array(
+//     'title' => 'Edit Social Links',
+//     'type' => MENU_DEFAULT_LOCAL_TASK,
+//     'context' => MENU_CONTEXT_INLINE,
+//   );
+//   return $items;
+// }
+
+/**
+ * Implementation of hook_form_system_site_information_settings_alter().
+ *
+ * Site info form: /admin/config/system/site-information
+ *
+ */
+function site_info_extras_form_system_site_information_settings_alter(&$form, &$form_state, $form_id) {
+  $form['site_information']['social'] = array(
+    '#type'         => 'fieldset',
+    '#title'        => t("Social links and template classes"),
+    '#collapsible'  => FALSE,
+    '#collapsed'    => FALSE
+  );
+
+  $form['site_information']['social']['site_info_extras_facebook'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Facebook URL'),
+    '#default_value' => variable_get('site_info_extras_facebook', 'http://facebook.com'),
+    '#maxlength' => 255,
+    '#weight' => 10,
+  );
+  $form['site_information']['social']['site_info_extras_facebook_classes'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Facebook link classes'),
+    '#default_value' => variable_get('site_info_extras_facebook_classes', 'icon-social icon-social-facebook-square icon-hidetext'),
+    '#maxlength' => 255,
+    '#weight' => 15,
+  );
+
+  $form['site_information']['social']['site_info_extras_twitter'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Twitter URL'),
+    '#default_value' => variable_get('site_info_extras_twitter', 'http://twitter.com'),
+    '#maxlength' => 255,
+    '#weight' => 20,
+  );
+  $form['site_information']['social']['site_info_extras_twitter_classes'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Twitter link classes'),
+    '#default_value' => variable_get('site_info_extras_twitter_classes', 'icon-social icon-social-twitter-square icon-hidetext'),
+    '#maxlength' => 255,
+    '#weight' => 25,
+  );
+
+  $form['site_information']['social']['site_info_extras_youtube'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Youtube URL'),
+    '#default_value' => variable_get('site_info_extras_youtube', 'http://youtube.com'),
+    '#maxlength' => 255,
+    '#weight' => 30,
+  );
+  $form['site_information']['social']['site_info_extras_youtube_classes'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Youtube link classes'),
+    '#default_value' => variable_get('site_info_extras_youtube_classes', 'icon-social icon-social-youtube-square icon-hidetext'),
+    '#maxlength' => 255,
+    '#weight' => 35,
+  );
+
+  $form['site_information']['social']['site_info_extras_instagram'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Instagram URL'),
+    '#default_value' => variable_get('site_info_extras_instagram', 'http://instagram.com'),
+    '#maxlength' => 255,
+    '#weight' => 40,
+  );
+  $form['site_information']['social']['site_info_extras_instagram_classes'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Instagram link classes'),
+    '#default_value' => variable_get('site_info_extras_instagram_classes', 'icon-social icon-social-instagram icon-hidetext'),
+    '#maxlength' => 255,
+    '#weight' => 45,
+  );
+
+  // Function to do variable set/get when render array keys match variable name
+  // Not needed since this is a Core form which calls this function already
+  // $form['#submit'][] = ' system_settings_form';
+
+}
+
+
+function site_info_extras_block_info() {
+  $blocks = array();
+
+  $blocks['site_info_extras_social'] = array(
+    'info' => t('Social Media Links'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function site_info_extras_block_configure($delta='') {
+  $form = array();
+
+  switch($delta) {
+    case 'site_info_extras_social' :
+      // Text field form element
+      $form['text'] = array(
+        '#type' => 'markup',
+        '#markup' => '<p>This content is administered on the <a href="/admin/config/system/site-information">Site Information</a> page.</p>'
+      );
+      break;
+  }
+  return $form;
+}
+
+
+function site_info_extras_block_view($delta) {
+  if ($delta == 'site_info_extras_social') {
+    $facebook = variable_get('site_info_extras_facebook', '');
+    $facebook_classes = variable_get('site_info_extras_facebook_classes', '');
+
+    $twitter = variable_get('site_info_extras_twitter', '');
+    $twitter_classes = variable_get('site_info_extras_twitter_classes', '');
+
+    $youtube = variable_get('site_info_extras_youtube', '');
+    $youtube_classes = variable_get('site_info_extras_youtube_classes', '');
+
+    $instagram = variable_get('site_info_extras_instagram', '');
+    $instagram_classes = variable_get('site_info_extras_instagram_classes', '');
+
+    $items = array();
+
+
+    if ($facebook){
+      $items[] = '<a class="' . check_plain($facebook_classes) . '" href="' . $facebook .'">Find us on Facebook</a>';
+    }
+
+    if ($twitter){
+      $items[] = '<a class="' . check_plain($twitter_classes) . '" href="' . $twitter .'">Find us on Twitter</a>';
+    }
+
+    if ($youtube){
+      $items[] = '<a class="' . check_plain($youtube_classes) . '" href="' . $youtube .'">Find us on Youtube</a>';
+    }
+
+    if ($instagram){
+      $items[] = '<a class="' . check_plain($instagram_classes) . '" href="' . $instagram .'">Find us on Instagram</a>';
+    }
+
+    return array(
+      'subject' => '',
+      'content' => array(
+        '#type' => 'markup',
+        '#markup' => '<div class="social-list">' . theme('item_list', array('items' => $items)) . '</div>',
+
+        // Contextual links are attached to the block array using the special
+        // #contextual_links property. The #contextual_links property contains an
+        // array, keyed by the name of each module that is attaching contextual
+        // links to it.
+        // '#contextual_links' => array(
+        //   'site_info_extras' => array('admin/config/system/site-information', array()),
+        // ),
+      ),
+    );
+    // return array(
+    //   'subject' => '',
+    //   'content' => _bannerblocks_signup_block_content(),
+    // );
+
+  }
+}

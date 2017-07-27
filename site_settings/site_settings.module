@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function site_settings_menu(){
+  $items = array();
+
+  $items['admin/config/site'] = array(
+    'title' => 'Site settings',
+    'description' => '',
+    'type' => MENU_NORMAL_ITEM,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('site_settings_admin'),
+    'access arguments' => array('administer_site_settings')
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function site_settings_permission(){
+  $perms = array();
+
+  $perms['administer_site_settings'] = array(
+    'title' => 'Administer site settings',
+    'description' => 'Access the site administration pages.',
+  );
+
+  return $perms;
+}
+
+/**
+ * Implements hook_form().
+ */
+function site_settings_admin() {
+  $form = array();
+
+  $form['site_test_field'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Test'),
+    '#default_value' => variable_get('site_test_field', 'Default value here'),
+  );
+
+  return system_settings_form($form);
+}

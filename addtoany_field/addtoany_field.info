@@ -1,0 +1,6 @@
+name = Add to Any links in field display
+description = Custom module to add share links to Manage Display area.
+package = Custom
+core = 7.x
+
+dependencies[] = addtoany

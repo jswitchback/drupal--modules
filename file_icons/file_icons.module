@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implementation of hook_theme().
+ */
+function file_icons_theme() {
+  return array(
+    // override default implementation from file.module theme_file_icon:
+    'file_icon' => array(
+      'file' => 'file_icons.inc',
+      'function' => 'file_icons_theme_file_icon',
+      'arguments' => array('file' => NULL, 'icon_directory' => NULL),
+    ),
+  );
+}
