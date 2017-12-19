@@ -16,7 +16,7 @@ function magnific_popup_library() {
   $module_path = drupal_get_path('module', 'magnific_popup');
 
   if (empty($magnific_library_path)) {
-    drupal_set_message(t('Please install the Magnific Popup JS library in sites/all/libraries/magnific-popup/. Javascript at /dist/jquery.magnific-popup.js. CSS at /dist/magnific-popup.css', 'error');
+    drupal_set_message(t('Please install the Magnific Popup JS library in sites/all/libraries/magnific-popup/. Javascript at /dist/jquery.magnific-popup.js. CSS at /dist/magnific-popup.css'), 'error');
     return array();
   }
 
