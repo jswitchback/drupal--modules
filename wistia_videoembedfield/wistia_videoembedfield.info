@@ -1,0 +1,8 @@
+name = Wistia Video Embed Field
+description = Extends video_embed_field module to handle Wistia videos.
+package = "Custom"
+core = 7.x
+version = 7.x-1.0
+
+dependencies[] = video_embed_field
+

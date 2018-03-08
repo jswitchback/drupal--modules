@@ -1,0 +1,5 @@
+name = Announcements
+description = Custom system settings and block
+package = Rapid Development Group
+
+core = 7.x

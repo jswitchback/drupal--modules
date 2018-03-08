@@ -1,0 +1,98 @@
+<?php
+
+/**
+ * Implementation of hook_form_system_site_information_settings_alter().
+ *
+ * Site info form: /admin/config/system/site-information
+ *
+ */
+function announcements_form_system_site_information_settings_alter(&$form, &$form_state, $form_id) {
+
+  $form['site_information']['announcements'] = array(
+    '#type'         => 'fieldset',
+    '#title'        => t("Announcement settings"),
+    '#collapsible'  => FALSE,
+    '#collapsed'    => FALSE
+  );
+
+  $form['site_information']['announcements']['announcements_display'] = array(
+  '#type' => 'checkbox',
+  '#default_value' => variable_get('announcements_display', 0),
+  '#title' => t('Display Announcements'),
+  '#weight' => 0,
+  );
+
+  $announcement = variable_get('announcement_text_body',array('value' => 'Willow Necklace and earring set • $24.95 with $250 Boutique special • <a href="/">Learn more</a>', 'format' => 'wysiywg'));
+  $form['site_information']['announcements']['announcement_text_body'] = array(
+    '#type' => 'text_format',
+    '#title' => t('Text'),
+    '#default_value' => $announcement['value'],
+    '#weight' => 1,
+  );
+}
+
+
+function announcements_block_info() {
+  $blocks = array();
+
+  $blocks['announcements'] = array(
+    'info' => t('Announcements'),
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_configure().
+ */
+function announcements_block_configure($delta='') {
+  $form = array();
+
+  switch($delta) {
+    case 'announcements' :
+      // Text field form element
+      $form['text'] = array(
+        '#type' => 'markup',
+        '#markup' => '<p>This content is administered on the <a href="/admin/config/system/site-information">Site Information</a> page.</p>'
+      );
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function announcements_block_view($delta) {
+
+  switch ($delta) {
+    case 'announcements':
+      return array(
+        'subject' => '',
+        'content' => _announcements(),
+      );
+
+      break;
+  }
+}
+
+function _announcements() {
+  $block = array();
+
+  $display = variable_get('announcements_display');
+  $announcement = variable_get('announcement_text_body')['value'];
+
+  // Return empty block so it doesn't display
+  if (!$display) {
+    return $block;
+  }
+
+  $block = array(
+    'message' => array(
+      '#type' => 'markup',
+      '#markup' => $announcement,
+    ),
+  );
+
+  return $block;
+}

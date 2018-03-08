@@ -1,0 +1,277 @@
+<?php
+
+/**
+ * @function hook_video_embed_handler_info
+ * Can be used to add more handlers for video_embed_field
+ */
+function wistia_videoembedfield_video_embed_handler_info() {
+  $handlers = array();
+
+  $handlers['wistia'] = array(
+    'title' => 'Wistia',
+    'function' => 'wistia_videoembedfield_handle_wistia',
+    //'thumbnail_function' => 'wistia_videoembedfield_handle_wistia_thumbnail',
+    //'thumbnail_default' => drupal_get_path('module', 'wistia_videoembedfield') . '/img/wistia.jpg',
+    'data_function' => 'wistia_videoembedfield_handler_wistia_data',
+    'form' => 'wistia_videoembedfield_handler_wistia_form',
+    // 'form_validate' => 'wistia_videoembedfield_handler_wistia_form_validate',
+    'domains' => array(
+      'wistia.net',
+      'fast.wistia.net',
+      'wistia.com',
+      'fast.wistia.com',
+      'intevaproducts.wistia.com',
+    ),
+    'defaults' => array(
+      'embed_type' => 1,
+      'width' => '640px',
+      'height' => '360px',
+      'class' => '',
+      'embed_settings' => array(
+        'autoPlay' => 0,
+        'controlsVisibleOnLoad' => 1,
+        'wmode' => 0,
+        'playerColor' => '000000',
+      ),
+    ),
+  );
+
+  return $handlers;
+}
+
+
+
+/**
+ * A forms api callback, returns the settings form for the provider
+ * @param $defaults - default/current values for your provider, the currently saved settings
+ *                       with empty values filled with the defaults provided in info hook
+ * @return a form as defined by forms api
+ *
+ * @see http://api.drupal.org/api/drupal/developer!topics!forms_api_reference.html/7
+ */
+function wistia_videoembedfield_handler_wistia_form($defaults) {
+  $form = array();
+
+  $form['embed_type'] = array(
+    '#type' => 'radios',
+    '#options' => array(
+      0 => t('Inline'),
+      1 => t('Popover'),
+      2 => t('Fallback (iframe)'),
+    ),
+    '#title' => t('Embed type'),
+    // '#description' => t('This parameter indicates whether the video player controls will display.'),
+    '#default_value' => $defaults['embed_type'],
+
+    // '#states' => array(
+    //   'visible' => array(
+    //    ':input[id="edit-instance-settings-description-field"]' => array('checked' => TRUE),
+    //   ),
+    // ),
+  );
+
+  $form['width'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Player Width'),
+    '#description' => t('The width of the player (include unit).'),
+    '#default_value' => $defaults['width'],
+  );
+
+  $form['height'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Player height'),
+    '#description' => t('The height of the player (include unit).'),
+    '#default_value' => $defaults['height'],
+  );
+
+  $form['class'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Player CSS class'),
+    '#description' => t('CSS class to add to the player'),
+    '#default_value' => $defaults['class'],
+  );
+
+  $form['embed_settings'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Advanced settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+
+  $form['embed_settings']['controlsVisibleOnLoad'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show controls'),
+    '#default_value' => $defaults['embed_settings']['controlsVisibleOnLoad'],
+  );
+
+  $form['embed_settings']['autoPlay'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Autoplay'),
+    '#description' => t('Play the video immediately.'),
+    '#default_value' => $defaults['embed_settings']['autoPlay'],
+  );
+
+  $form['embed_settings']['wmode'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Make video background transparent'),
+    // '#description' => t(''),
+    '#default_value' => $defaults['embed_settings']['wmode'],
+  );
+
+  $form['embed_settings']['playerColor'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Player Color'),
+    '#description' => t('Hex formatted color to use on the Wistia player. Example: 000000'),
+    '#field_prefix' => t('#'),
+    '#default_value' => $defaults['embed_settings']['playerColor'],
+  );
+
+  return $form;
+}
+
+/**
+ * Generate the embed code for a video
+ * @param $url - the video url as entered by the user
+ * @param $settings - the settings for this provider as defined in the form function,
+ *                      defaulting to your provider's defaults
+ * @return the embed code as a renderable array
+ */
+function wistia_videoembedfield_handle_wistia($url, $settings) {
+  $embed_type = $settings['embed_type'];
+  $width = check_plain($settings['width']);
+  $height = check_plain($settings['height']);
+  $class = check_plain($settings['class']);
+  $video_id = _video_embed_field_get_wistia_id($url);
+  $settings_string = '';
+
+  switch ($embed_type) {
+
+    // Inline & Popover
+    case 0:
+    case 1:
+      $display_in_popover = ($embed_type == 1) ? 'true' : 'false';
+      $settings_string = _video_embed_code_get_wistia_settings_string($settings['embed_settings'], ' ');
+
+      $output = array(
+        '#markup' => '<span class="' . $class . ' wistia_embed wistia_async_' . $video_id . ' popover=' . $display_in_popover . ' popoverAnimateThumbnail=true ' . $settings_string . '" style="height:' . $height . ';width:' . $width . ';">&nbsp;</span>',
+        '#attached' => array(
+          'js' => array(
+            'https://fast.wistia.com/assets/external/E-v1.js' => array(
+              'type' => 'external',
+              'async' => TRUE,
+            ),
+            'https://fast.wistia.com/embed/medias/' . $video_id . '.jsonp' => array(
+              'type' => 'external',
+              'async' => TRUE,
+            ),
+          ),
+        ),
+      );
+
+      break;
+
+    // iframe (choice index 2)
+    default:
+      $settings_string = _video_embed_code_get_wistia_settings_string($settings['embed_settings'], '&amp;');
+
+      $output = array(
+        '#suffix' => '<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>',
+        '#markup' => '<iframe src="//fast.wistia.net/embed/iframe/' . $video_id . '?' . $settings_string . '" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed ' . $class . '" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="' . $width . '" height="' . $height . '"></iframe>',
+      );
+      break;
+  }
+
+  return $output;
+}
+
+
+/**
+ * Helper function to get the Wistia video's id.
+ * Example url: http://fast.wistia.net/embed/iframe/26sk4lmiix
+ *
+ * @param string $url
+ *   The video URL.
+ *
+ * @return string|bool
+ *   The video ID, or FALSE in case the ID can't be retrieved from the URL.
+ */
+function _video_embed_field_get_wistia_id($url) {
+  preg_match('/(?:(?:medias|iframe)\/|wvideo=)([\w-]+)/', $url, $matches);
+  return $matches ? $matches[1] : NULL;
+}
+
+
+/**
+ * Fetches settings string.
+ * Example: https://fast.wistia.com/embed/iframe/e4a27b971d?controlsVisibleOnLoad=true&playerColor=688AAD&wmode=transparent
+ *
+ * @param array $settings
+ *   The settings array.
+ *
+ * @return string
+ *   The settings string generated from the settings array.
+ */
+function _video_embed_code_get_wistia_settings_string($settings = array(), $separator) {
+  $values = array();
+
+  foreach ($settings as $name => $value) {
+    if (!isset($value)) {
+      $values[] = $name;
+    }
+    else {
+
+      // Adjust output
+      switch ($name) {
+        case 'controlsVisibleOnLoad':
+        case 'autoPlay':
+          $value = $value ? 'true' : 'false';
+          break;
+
+        case 'wmode':
+          $value = $value ? 'transparent' : '';
+          break;
+      }
+
+      // Skip value if it's an empty string. Do not add to array
+      if (is_string($value) && empty($value)) { continue;}
+
+      $values[] = $name . '=' . $value;
+    }
+  }
+
+  return implode($separator, $values);
+}
+
+
+/**
+ * Validates the form elements for the Wistia configuration form.
+ */
+// function wistia_videoembedfield_handler_wistia_form_validate($element, &$form_state, $form) {
+// }
+
+/**
+ * Return an array of extra data to be stored with the video, this data will be available for theming
+ * @return an array
+ */
+function wistia_videoembedfield_handler_wistia_data($url) {
+  return array(
+    'provider' => 'wistia',
+  );
+}
+
+/**
+ * Processes variables to format a video player.
+ *
+ * @param array $variables
+ *   Contains the following information:
+ *    - $url
+ *    - $style
+ *    - $video_data
+ *
+ * @see video-embed-field-code.tpl.php
+ */
+function wistia_videoembedfield_preprocess_video_embed_field_embed_code(&$variables) {
+  // Add template suggestions per provider and "style" (like view mode).
+  $variables['theme_hook_suggestions'][] = 'video_embed_field_embed_code__' . $variables['handler'];
+  $variables['theme_hook_suggestions'][] = 'video_embed_field_embed_code__' . $variables['handler'] . '__' . $variables['style'];
+}
