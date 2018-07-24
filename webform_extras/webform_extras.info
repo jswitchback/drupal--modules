@@ -1,4 +1,4 @@
-name = Extend Webform Features 
+name = Webform Extra Features 
 description = Includes additionional html components for use grouping form components.
 core = 7.x
 package = Rapid Development Group
