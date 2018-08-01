@@ -1,7 +1,7 @@
 /** @constructor */
 
-// Expecting an object to initiate "new MCMap":
-// var map = new MCMap({mapCanvasId: 'mcmap--canvas', data: data});
+// Expecting an object to initiate "new Map":
+// var map = new Map({mapCanvasId: 'Map--canvas', data: data});
 // {
 //   mapCanvasId: '', // HTML ID
 //   data: data  // GeoJson
@@ -67,28 +67,28 @@ function Map (options) {
 /** @prototype / Public methods */
 
 
-// MCMap.prototype.init = function(options, data) {
+// Map.prototype.init = function(options, data) {
 // };
 
-MCMap.prototype.setMapData = function(data) {
+Map.prototype.setMapData = function(data) {
   this.locationData = data;
 };
 
-MCMap.prototype.getMapData = function() {
+Map.prototype.getMapData = function() {
   return this.locationData;
 };
 
-MCMap.prototype.setCenter = function(position) {
+Map.prototype.setCenter = function(position) {
   var self = this;
   self.map.setCenter(position);
 };
 
-MCMap.prototype.setZoom = function(value) {
+Map.prototype.setZoom = function(value) {
   var self = this;
   self.map.setZoom(value);
 };
 
-MCMap.prototype.getLatLng = function(lat, lng) {
+Map.prototype.getLatLng = function(lat, lng) {
   return new google.maps.LatLng(lat, lng);
 };
 
@@ -106,7 +106,7 @@ MCMap.prototype.getLatLng = function(lat, lng) {
 //   description: "<article class="node-7906 node node-store node-teaser contextual-links-region clearfix"> <header> <h2 class="node__title"><a href="/interstate-shopping-center">Interstate Shopping Center</a></h2> <div class="contextual-links-wrapper"><ul class="contextual-links"><li class="node-edit first"><a href="/node/7906/edit?destination=api/locations">Edit</a></li> <li class="node-delete last"><a href="/node/7906/delete?destination=api/locations">Delete</a></li> </ul></div> <p class="submitted"> by <span class="author"><a href="/users/rdg-admin" title="View user profile." class="username">rdg-admin</a></span> on <span class="list-date"><time>December 31, 2011</span> </p> </header> <ul class="links inline"><li class="node-readmore first last"><a href="/interstate-shopping-center" rel="tag" title="Interstate Shopping Center">Read more<span class="element-invisible"> about Interstate Shopping Center</span></a></li> </ul> </article> "
 //   }
 // },
-MCMap.prototype.addMarkers = function(data) {
+Map.prototype.addMarkers = function(data) {
   var self = this,
       length = data.features.length;
 
@@ -120,7 +120,7 @@ MCMap.prototype.addMarkers = function(data) {
   }
 };
 
-MCMap.prototype.addMarker = function(lat, lng, content) {
+Map.prototype.addMarker = function(lat, lng, content) {
   var self = this,
       latLng = this.getLatLng(lat, lng),
       marker = new google.maps.Marker({
@@ -146,7 +146,7 @@ MCMap.prototype.addMarker = function(lat, lng, content) {
   });
 };
 
-MCMap.prototype.createGeolocateControl = function(options) {
+Map.prototype.createGeolocateControl = function(options) {
   var self = this;
 
   geoLocateControl = document.createElement('div');
@@ -171,7 +171,7 @@ MCMap.prototype.createGeolocateControl = function(options) {
   });
 };
 
-MCMap.prototype.setCurrentLocation = function() {
+Map.prototype.setCurrentLocation = function() {
   var self = this;
 
   if (navigator.geolocation) {
@@ -197,7 +197,7 @@ MCMap.prototype.setCurrentLocation = function() {
   }
 };
 
-MCMap.prototype.handleNoGeolocation = function(errorFlag, status) {
+Map.prototype.handleNoGeolocation = function(errorFlag, status) {
   var self = this;
 
   if (errorFlag) {
@@ -208,7 +208,7 @@ MCMap.prototype.handleNoGeolocation = function(errorFlag, status) {
   geoLocateControl.className = "";
 };
 
-MCMap.prototype.fitToClosestMarker = function(originLatLng, pointCount) {
+Map.prototype.fitToClosestMarker = function(originLatLng, pointCount) {
   var self = this,
       data = self.getMapData(),
       length = data.features.length,
@@ -248,7 +248,7 @@ MCMap.prototype.fitToClosestMarker = function(originLatLng, pointCount) {
 
 };
 
-MCMap.prototype.alertModalMessage = function(message) {
+Map.prototype.alertModalMessage = function(message) {
   if (Drupal.behaviors.magnific_popup) {
     var modalHTML = '<div class="map-message">' + message + '</div>';
 
@@ -268,7 +268,7 @@ MCMap.prototype.alertModalMessage = function(message) {
 };
 
 // Geocode zip
-MCMap.prototype.geocodeAddress = function(options) {
+Map.prototype.geocodeAddress = function(options) {
   var self = this,
       geocoder = new google.maps.Geocoder();
 
