@@ -1,0 +1,9 @@
+name = Interactive Map
+description = Interactive map using Mapplic plugin.
+core = 7.x
+package = Maps
+
+dependencies[] = libraries
+dependencies[] = entity
+dependencies[] = jquery_update
+

@@ -29,9 +29,17 @@ function wistia_videoembedfield_video_embed_handler_info() {
       'class' => '',
       'embed_settings' => array(
         'autoPlay' => 0,
-        'controlsVisibleOnLoad' => 1,
+        'muted' => 0,
         'wmode' => 0,
         'playerColor' => '000000',
+        'videoFoam' => 0,
+        'googleAnalytics' => 0,
+        'controlsVisibleOnLoad' => 1,
+        'playbackRateControl' => 1,
+        'playbar' => 1,
+        'playButton' => 1,
+        'settingsControl' => 1,
+
       ),
     ),
   );
@@ -58,16 +66,11 @@ function wistia_videoembedfield_handler_wistia_form($defaults) {
       0 => t('Inline'),
       1 => t('Popover'),
       2 => t('Fallback (iframe)'),
+      3 => t('Responsive iframe'),
     ),
     '#title' => t('Embed type'),
     // '#description' => t('This parameter indicates whether the video player controls will display.'),
     '#default_value' => $defaults['embed_type'],
-
-    // '#states' => array(
-    //   'visible' => array(
-    //    ':input[id="edit-instance-settings-description-field"]' => array('checked' => TRUE),
-    //   ),
-    // ),
   );
 
   $form['width'] = array(
@@ -75,6 +78,11 @@ function wistia_videoembedfield_handler_wistia_form($defaults) {
     '#title' => t('Player Width'),
     '#description' => t('The width of the player (include unit).'),
     '#default_value' => $defaults['width'],
+    '#states' => array(
+      'invisible' => array(
+        ':input[name="data[wistia][embed_type]"]' => array('value' => 3),
+      ),
+    ),
   );
 
   $form['height'] = array(
@@ -82,6 +90,11 @@ function wistia_videoembedfield_handler_wistia_form($defaults) {
     '#title' => t('Player height'),
     '#description' => t('The height of the player (include unit).'),
     '#default_value' => $defaults['height'],
+    '#states' => array(
+      'invisible' => array(
+        ':input[name="data[wistia][embed_type]"]' => array('value' => 3),
+      ),
+    ),
   );
 
   $form['class'] = array(
@@ -91,6 +104,7 @@ function wistia_videoembedfield_handler_wistia_form($defaults) {
     '#default_value' => $defaults['class'],
   );
 
+  // https://wistia.com/support/developers/embed-options
   $form['embed_settings'] = array(
     '#type' => 'fieldset',
     '#title' => t('Advanced settings'),
@@ -98,23 +112,23 @@ function wistia_videoembedfield_handler_wistia_form($defaults) {
     '#collapsed' => FALSE,
   );
 
-  $form['embed_settings']['controlsVisibleOnLoad'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show controls'),
-    '#default_value' => $defaults['embed_settings']['controlsVisibleOnLoad'],
-  );
-
   $form['embed_settings']['autoPlay'] = array(
     '#type' => 'checkbox',
     '#title' => t('Autoplay'),
-    '#description' => t('Play the video immediately.'),
+    '#description' => t('Play the video immediately. Autoplay will not work on iOS and other mobile devices due to restrictions on bandwidth on cellular networks.'),
     '#default_value' => $defaults['embed_settings']['autoPlay'],
+  );
+
+  $form['embed_settings']['muted'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Mute'),
+    '#description' => t('Video will start in a muted state.'),
+    '#default_value' => $defaults['embed_settings']['muted'],
   );
 
   $form['embed_settings']['wmode'] = array(
     '#type' => 'checkbox',
     '#title' => t('Make video background transparent'),
-    // '#description' => t(''),
     '#default_value' => $defaults['embed_settings']['wmode'],
   );
 
@@ -124,6 +138,76 @@ function wistia_videoembedfield_handler_wistia_form($defaults) {
     '#description' => t('Hex formatted color to use on the Wistia player. Example: 000000'),
     '#field_prefix' => t('#'),
     '#default_value' => $defaults['embed_settings']['playerColor'],
+  );
+
+  $form['embed_settings']['videoFoam'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Video foam'),
+    '#description' => t('Video will monitor the width of its parent element. When that width changes, the video will match that width and modify its height to maintain the correct aspect ratio.'),
+    '#default_value' => $defaults['embed_settings']['videoFoam'],
+  );
+
+  $form['embed_settings']['googleAnalytics'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Google Analytics'),
+    '#description' => t('If you\'re using Google Analytics on the page where you embed a video, the video will automatically send events to your Google Analytics account'),
+    '#default_value' => $defaults['embed_settings']['googleAnalytics'],
+  );
+
+  $form['embed_settings']['controlsVisibleOnLoad'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show controls'),
+    '#description' => t('Controls like the big play button, playbar, volume, etc. will be visible as soon as the video is embedded.'),
+    '#default_value' => $defaults['embed_settings']['controlsVisibleOnLoad'],
+  );
+
+  $form['embed_settings']['playbar'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Playbar'),
+    '#description' => t('Display the playbar - which includes the playhead, current time, and scrubbing functionality.'),
+    '#default_value' => $defaults['embed_settings']['playbar'],
+    '#states' => array(
+      'visible' => array(
+        ':input[name="data[wistia][embed_settings][controlsVisibleOnLoad]"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+  
+  $form['embed_settings']['playButton'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Play button'),
+    '#description' => t('Display the play button.'),
+    '#default_value' => $defaults['embed_settings']['playButton'],
+    '#states' => array(
+      'visible' => array(
+        ':input[name="data[wistia][embed_settings][controlsVisibleOnLoad]"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+
+  $form['embed_settings']['settingsControl'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Settings control'),
+    '#description' => t('Display the settings control. This will allow viewers to control the quality and playback speed of the video.'),
+    '#default_value' => $defaults['embed_settings']['settingsControl'],
+    '#states' => array(
+      'visible' => array(
+        ':input[name="data[wistia][embed_settings][controlsVisibleOnLoad]"]' => array('checked' => TRUE),
+      ),
+    ),
+  );
+
+  $form['embed_settings']['playbackRateControl'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Play back rate control'),
+    '#description' => t('Display playback speed controls in the settings menu.'),
+    '#default_value' => $defaults['embed_settings']['playbackRateControl'],
+    '#states' => array(
+      'visible' => array(
+        ':input[name="data[wistia][embed_settings][controlsVisibleOnLoad]"]' => array('checked' => TRUE),
+        ':input[name="data[wistia][embed_settings][settingsControl]"]' => array('checked' => TRUE),
+      ),
+    ),
   );
 
   return $form;
@@ -142,7 +226,7 @@ function wistia_videoembedfield_handle_wistia($url, $settings) {
   $height = check_plain($settings['height']);
   $class = check_plain($settings['class']);
   $video_id = _video_embed_field_get_wistia_id($url);
-  $settings_string = '';
+  $settings_string = _video_embed_code_get_wistia_settings_string($settings['embed_settings'], '&amp;');
 
   switch ($embed_type) {
 
@@ -167,13 +251,24 @@ function wistia_videoembedfield_handle_wistia($url, $settings) {
           ),
         ),
       );
-
+      break;
+      
+    case 3:
+      $output = array(
+        '#markup' => '<div class="wistia_responsive_padding ' . $class . '" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="//fast.wistia.net/embed/iframe/' . $video_id . '?' . $settings_string . ' allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="100%" height="100%"></iframe></div></div>',
+        '#attached' => array(
+          'js' => array(
+            'https://fast.wistia.com/assets/external/E-v1.js' => array(
+              'type' => 'external',
+              'async' => TRUE,
+            ),
+          ),
+        ),
+      );
       break;
 
     // iframe (choice index 2)
     default:
-      $settings_string = _video_embed_code_get_wistia_settings_string($settings['embed_settings'], '&amp;');
-
       $output = array(
         '#suffix' => '<script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>',
         '#markup' => '<iframe src="//fast.wistia.net/embed/iframe/' . $video_id . '?' . $settings_string . '" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed ' . $class . '" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="' . $width . '" height="' . $height . '"></iframe>',
@@ -224,6 +319,13 @@ function _video_embed_code_get_wistia_settings_string($settings = array(), $sepa
       switch ($name) {
         case 'controlsVisibleOnLoad':
         case 'autoPlay':
+        case 'googleAnalytics':
+        case 'muted':
+        case 'playbackRateControl':
+        case 'playbar':
+        case 'playButton':
+        case 'settingsControl':
+        case 'videoFoam':
           $value = $value ? 'true' : 'false';
           break;
 

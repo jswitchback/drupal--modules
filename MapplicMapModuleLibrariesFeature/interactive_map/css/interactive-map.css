@@ -1,0 +1,194 @@
+/* IE8 --- Hide map */
+
+.lt-ie9 #mapplic {
+  display: none;
+}
+
+.lt-ie9 .mapplic-description {
+  float: none;
+  margin-right: 0;
+  width: 100%;
+}
+
+/*
+ * Mapplic - CSS Overrides
+ * This file loads second so specificity needs to abnormally high to override module css added via js
+ */
+
+
+.mapplic-container {
+  background-color: #DAEFF7 !important;
+}
+
+/* Force proper height */
+/*.mapplic-map,
+.mapplic-element {
+  height: 420px !important;
+}*/
+
+
+.mapplic-container .mapplic-tooltip-title {
+  color: #29AFA1;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* .mapplic-description {
+  float: left;
+  margin-right: 24px;
+  width: 237px;
+}
+
+.mapplic-element {
+  float: right;
+  width: 646px;
+} */
+
+.mapplic-post {
+  clear: both;
+  margin-top: 40px;
+}
+
+/* Location listing */
+
+.location-col-left,
+.location-col-right {
+  float: left;
+  width: 50%;
+}
+
+.location-europe {
+  padding-right: 40px;
+}
+
+.location-europe-wrapper h3 {
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.location-europe-wrapper strong {
+  color: #444444;
+}
+
+/* Pin */
+
+.mapplic-container .mapplic-pin {
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  margin-left: -6px;
+  position: absolute;
+  background: #00ADEF;
+  border-radius: 50%;
+/*
+  background-image: url(../images/pin-inteva.png);
+  background-size: 18px 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 18px;
+  height: 24px;
+  margin-top: -23px;
+  margin-left: -9px; */
+  position: absolute;
+}
+
+[id^=landmarks] .mapplic-clickable,
+.mapplic-clickable:not(g), g.mapplic-clickable > * {
+  fill: #ef0042;
+}
+/*
+.mapplic-pin.iconpin {
+  background-image: url(images/pin-large.png);
+  background-size: 30px 42px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 36px;
+  text-align: center;
+  width: 30px;
+  height: 42px;
+  margin-top: -42px;
+  margin-left: -15px;
+}
+*/
+
+/* Animation */
+
+/*
+#cz           Czech Republic
+#de_1_        Germany*
+#de_x5F_2_1_  Germany*
+#de_x5F_3_1_  Germany*
+#de_x5F_4     Germany*
+#nl_1_        Amsterdam
+#fr_1_        France*
+#fr_x5F_2_1_  France*
+#fr_x5F_3_1_  France*
+#pl_1_        Poland
+#ro_1_        Romania*
+#ro_x5F_2_1_  Romania*
+#sk_1_        Slovakia
+
+* Tootips show by country id so we need multiple layers of the same country
+  when there are multiple locations in that country.
+
+*/
+
+
+#cz_1_,
+#de_1_,
+#de_x5F_4,
+#de_x5F_2_1_,
+#de_x5F_3_1_,
+#nl_1_,
+#fr_1_,
+#fr_x5F_2_1_,
+#fr_x5F_3_1_,
+#pl_1_,
+#ro_1_,
+#ro_x5F_2_1_,
+#sk_1_ {
+  fill: #B2B2B2;
+  stroke: #939393;
+}
+/*
+#de_1_:hover,
+#nl_1_:hover,
+#fr_1_:hover,
+#pl_1_:hover,
+#ro_1_:hover,
+#sk_1_:hover {
+  -webkit-animation: show 1s;
+  -moz-animation:    show 1s;
+  -o-animation:      show 1s;
+  animation:         show 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+}
+
+@-webkit-keyframes show {
+  0%   { fill: #B2B2B2;
+       }
+  100% { fill: #565656;
+        }
+}
+
+@-moz-keyframes show {
+  0%   { fill: #B2B2B2;}
+  100% { fill: #565656;}
+}
+
+@-o-keyframes show {
+  0%   { fill: #B2B2B2;}
+  100% { fill: #565656;}
+}
+
+@keyframes show {
+  0%   { fill: #B2B2B2;}
+  100% { fill: #565656;}
+}
+*/

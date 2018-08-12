@@ -1,0 +1,300 @@
+<?php
+/**
+ * @file
+ * interactive_map module file.
+ */
+
+// include_once DRUPAL_ROOT . '/includes/locale.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function interactive_map_menu() {
+  $items['api/interactive-map'] = array(
+    'page callback' => '_interactive_map_json',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_library().
+ */
+function interactive_map_library() {
+  $library_path = _interactive_map_library_path();
+  $module_path = drupal_get_path("module", "interactive_map");
+  $libraries['interactive_map'] = array(
+    'title' => 'interactive_map',
+    'website' => 'http://codecanyon.net/user/sekler?ref=sekler',
+    'version' => '1.0',
+    'css' => array(
+      $library_path . '/html/mapplic/mapplic.css' => array(
+        'scope' => 'footer',
+        'group' => JS_THEME,
+        'weight' => 1000,
+      ),
+    ),
+    'js' => array(
+      $library_path . '/html/js/hammer.min.js' => array(),
+      $library_path . '/html/js/jquery.easing.js' => array(),
+      $library_path . '/html/js/jquery.mousewheel.js' => array(),
+      $library_path . '/html/js/smoothscroll.js' => array(),
+      $library_path . '/html/mapplic/mapplic.js' => array(),
+      $module_path . '/js/mapplic.js' => array(),
+      0 => array(
+        'type' => 'setting',
+        'data' => array(
+          'interactive_map' => array(
+            'source' => url('api/interactive-map'),
+            'sidebar' => FALSE,
+            'mapfill' => TRUE,
+            'zoombuttons' => TRUE,
+            'clearbutton' => TRUE,
+            'minimap' => FALSE,
+            'locations' => TRUE,
+            'fullscreen' => FALSE,
+            'hovertip' => TRUE,
+            'search' => FALSE,
+            'animate' => TRUE,
+            'developer' => FALSE,
+            'zoom' => FALSE,
+            'maxscale' => 10,
+          ),
+        ),
+      ),
+    ),
+  );
+
+  return $libraries;
+}
+
+/**
+ * Returns the path to the interactive_map library.
+ */
+function _interactive_map_library_path() {
+  return variable_get('interactive_map_library_path', module_exists('libraries') ? libraries_get_path('mapplic') : 'sites/all/libraries/mapplic');
+}
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function interactive_map_block_info() {
+
+  $blocks['interactive_map'] = array(
+    'info' => t('Interactive Map'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ *
+ * This hook generates the contents of the blocks themselves.
+ */
+function interactive_map_block_view($delta = '') {
+  switch ($delta) {
+    case 'interactive_map':
+      drupal_add_library('interactive_map', 'interactive_map');
+      $block['subject'] = t("Interactive Map");
+      $block['content'] = array(
+        '#markup' =>'<div id="interactive-map"></div>',
+      );
+  
+      $block['content']['#attached'] = array(
+        'css' => array(
+          drupal_get_path('module', 'interactive_map') .'/css/interactive-map.css',
+        ),
+        // 'js' => array(
+        //   drupal_get_path('module', 'interactive_map') .'/js/interactive-map.js',
+        // ),
+      );
+
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_form().
+ */
+function interactive_map_landmark_form($node, $form_state) {
+  return node_content_form($node, $form_state);
+}
+
+/**
+ * Menu callback function to build the JSON file with all map data.
+ */
+function _interactive_map_json() {
+  $settings_map = array(
+    'mapwidth' => 1200,
+    'mapheight' => 760,
+    'categories' => array(),
+    'levels' => array(),
+  );
+
+  $settings_general = array(
+    'filters' => array(
+      'categories' => array(),
+      'regions' => array(),
+    ),
+    'locations' => array(),
+  );
+
+  $categories_taxonomy = taxonomy_vocabulary_machine_name_load("location_category");
+  $settings_general['filters']['categories'] = taxonomy_get_tree($categories_taxonomy->vid, 0, NULL, TRUE);
+
+  $region_taxonomy = taxonomy_vocabulary_machine_name_load("location_region");
+  $settings_general['filters']['regions']  = taxonomy_get_tree($region_taxonomy->vid);
+
+  // foreach ($terms as $term) {
+  //   $settings_map['categories'][] = array(
+  //     'id' => $term->tid,
+  //     'title' => $term->name,
+  //     'show' => 'TRUE',
+  //   );
+  // }
+
+  $settings_map['levels']['world-level'] = array(
+    'id' => 'world',
+    'title' => 'World',
+    'show' => 'TRUE',
+    'locations' => array(),
+  );
+
+  $settings_map['levels']['world-level']['map'] = base_path() . drupal_get_path("module", "interactive_map") . '/images/countries-map.svg';
+
+  $nodes = array();
+  // $countries = array();
+  // $countries_list = country_get_list();
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'location')
+    ->propertyCondition('status', 1);
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+    $nodes = node_load_multiple($nids);
+  }
+
+  foreach ($nodes as $node) {
+    try {
+      $wrapper = entity_metadata_wrapper('node', $node);
+      $thumb = $description = NULL;
+      $nid = $wrapper->getIdentifier();
+
+      if (!empty($wrapper->field_location_image->file->fid)) {
+        $thumb = $wrapper->field_location_image->value();
+        if (!empty($thumb)) {
+          $thumb = image_style_url("thumbnail", $thumb['uri']);
+        }
+      }
+      if (!empty($wrapper->field_location_description->value)) {
+        $description = $wrapper->field_location_description->value();
+        $description = $description['safe_value'];
+      }
+      // $countries[] = $wrapper->interactive_map_svg_id->value();
+      $settings_map['levels']['world-level']['locations'][] = array(
+        'id' => $wrapper->field_location_map_svgid->value() . drupal_html_class($node->title),
+        'title' => $node->title,
+        'about' => $description,
+        'description' => $description,
+        'thumbnail' => $thumb,
+        'x' => $wrapper->field_location_map_pos_x->value(),
+        'y' => $wrapper->field_location_map_pos_y->value(),
+      );
+
+      $settings_general['locations'][] = array(
+        'nid' => $nid,
+        'title' => $node->title,
+        'category' => $wrapper->field_location_category->value(), // array of multiple term objects
+        'region' => $wrapper->field_location_region->value(), // Only one region term object
+      );
+
+    } catch (Exception $e) {
+      watchdog('entity_metadata_wrapper', 'entity_metadata_wrapper error in %error_loc', array('%error_loc' => __FUNCTION__ . ' @ ' . __FILE__ . ' : ' . __LINE__), WATCHDOG_CRITICAL);
+      return;
+    }
+  
+
+    // Loop countries and add to map for country specific tooltips
+    // $countries = array_unique($countries);
+
+    // foreach ($countries as $value) {
+    //   $country_key = strtoupper($value); 
+
+    //   if ($value) {
+    //     $settings_map['levels'][$floor->tid]['locations'][] = array(
+    //       'id' => $value,
+    //       // 'title' => $countries_list[$country_key], // Hover tip not appearing in right place
+    //       // 'description' => $value,
+    //     );
+    //   }
+    // }
+  }
+
+  drupal_json_output($settings_map);
+
+  // drupal_json_output( 
+  //   array(
+  //   'settings_map' => $settings_map,
+  //   'settings_general' => $settings_general,
+  //   )
+  // );
+}
+
+
+/**
+* Implementation of hook_form_alter()
+*/
+function interactive_map_form_location_node_form_alter(&$form, &$form_state)  {
+  $mapplic_map = module_invoke('interactive_map','block_view','interactive_map');
+dpm($mapplic_map);
+  $form['interactive_map'] = array(
+    '#markup' => '<div id="mapplic-wrapper">' . render($mapplic_map['content']) . '</div>',
+    '#description' => t('Click map to add coordinates.'),
+    '#weight' => 20
+  );  
+
+  $form['#group_children']['interactive_map'] = 'group_mapping';
+
+  $form['#attached'] = array(
+    'css' => array(
+      drupal_get_path('module', 'interactive_map') .'/css/interactive-map.css',
+      drupal_get_path('module', 'interactive_map') .'/css/interactive-map.admin.css',
+
+    ),
+    'js' => array(
+      drupal_get_path('module', 'interactive_map') .'/js/interactive-map.admin.js', array('type' => 'file','scope' => 'footer'),
+    ),
+  );
+
+  // Override Default settings to show coordinates
+  drupal_add_js(array(
+    'interactive_map' => array(
+      // 'source' => url('mapplic/json'),
+      'sidebar' => FALSE,
+      // 'mapfill' => (boolean) variable_get('mapplic_mapfill', TRUE),
+      // 'zoombuttons' => (boolean) variable_get('mapplic_zoombuttons', TRUE),
+      // 'clearbutton' => (boolean) variable_get('mapplic_clearbutton', TRUE),
+      'minimap' => FALSE,
+      'locations' => FALSE,
+      // 'fullscreen' => (boolean) variable_get('mapplic_fullscreen', TRUE),
+      // 'hovertip' => (boolean) variable_get('mapplic_hovertip', TRUE),
+      'search' => FALSE,
+      // 'animate' => (boolean) variable_get('mapplic_animate', TRUE),
+      'developer' => TRUE,
+      'zoom' => TRUE,
+      // 'maxscale' => (int) variable_get('mapplic_max_scale', 10),
+    )), 'setting');
+
+  // dpm($form);
+
+}
+

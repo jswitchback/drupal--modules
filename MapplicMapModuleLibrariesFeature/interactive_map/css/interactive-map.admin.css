@@ -1,0 +1,4 @@
+.mapplic-map.mapplic-zoomable .mapplic-map-image,
+.mapplic-map-image {
+	cursor: crosshair !important;
+}
