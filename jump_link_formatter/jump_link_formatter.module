@@ -38,10 +38,10 @@ function jump_link_formatter_field_formatter_settings_form($field, $instance, $v
   $element = array();
   //Add formatter form elements
   $element['link_class'] = array(
-    '#type'           => 'textfield',             // Use a select box widget
-    '#title'          => t('Link class'),         // Widget label
-    '#description'    => t('Add a link class'),   // Helper text
-    '#default_value'  => $settings['link_class'], // Get the value if it's already been set
+    '#type'           => 'textfield',
+    '#title'          => t('Link class'),
+    '#description'    => t('Add a link class'),
+    '#default_value'  => $settings['link_class'],
   );
    $element['smooth_scroll'] = array(
    	'#title' => t('Enable smooth scrolling. Requires jQuery Smooth Scroll to be added to the Libraries directory.'),
