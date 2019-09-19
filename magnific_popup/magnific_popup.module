@@ -232,7 +232,8 @@ function magnific_popup_field_formatter_view($entity_type, $entity, $field, $ins
 
 /* Add Magnific Popup sitewide */
 function magnific_popup_preprocess_html(&$variables) {
-
-  drupal_add_library('magnific_popup', 'magnific_popup', FALSE);
-  drupal_add_library('magnific_popup', 'magnific_popup_init', FALSE);
+  if (!path_is_admin(current_path())) {
+    drupal_add_library('magnific_popup', 'magnific_popup', FALSE);
+    drupal_add_library('magnific_popup', 'magnific_popup_init', FALSE);
+  }
 }
